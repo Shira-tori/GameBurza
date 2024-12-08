@@ -9,10 +9,11 @@ package com.mycompany.gameburza;
  * @author sean
  */
 public class GameBurza {
-
+    public static LoginScreen loginScreen = new LoginScreen();
+    public static RegisterScreen registerScreen = new RegisterScreen();
+    public static MainScreen mainScreen = new MainScreen();
+    
     public static void main(String[] args) {
-        LoginScreen loginScreen = new LoginScreen();
-        loginScreen.show();
-        System.out.println("Login");
+        LoginScreen.main(new String[]{});
     }
 }
