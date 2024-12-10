@@ -31,6 +31,7 @@ public class ItemPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 153, 153));
+        setPreferredSize(new java.awt.Dimension(200, 300));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel1.setText("Item");

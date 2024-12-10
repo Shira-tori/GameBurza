@@ -4,6 +4,12 @@
  */
 package com.mycompany.gameburza;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sean
@@ -15,6 +21,53 @@ public class RegisterScreen extends javax.swing.JFrame {
      */
     public RegisterScreen() {
         initComponents();
+    }
+    
+    private javax.swing.JTextField emailTextField;
+    private javax.swing.JPasswordField passwordField;
+    
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        String email = emailTextField.getText();
+        String password = new String(passwordField.getPassword());
+
+        if (email.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Email and Password cannot be empty.",
+                    "Registration Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            // Save credentials to a file
+            saveCredentialsToFile(email, password);
+
+            // Notify the user
+            JOptionPane.showMessageDialog(this, "Registration successful! You can now log in.",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            // Redirect to LoginScreen
+            dispose();
+            LoginScreen.main(new String[]{});
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving credentials: " + e.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void saveCredentialsToFile(String email, String password) throws IOException {
+        // File where credentials are stored
+        File file = new File("credentials.txt");
+
+        // Create the file if it doesn't exist
+        if (!file.exists()) {
+            file.createNewFile();
+        }
+
+        // Write the email and password to the file
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, true))) {
+            writer.write(email + "," + password);
+            writer.newLine();
+        }
     }
 
     /**
