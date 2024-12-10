@@ -37,6 +37,7 @@ public class LoginScreen extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("GameBurza");
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 700));
 
