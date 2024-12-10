@@ -26,21 +26,233 @@ public class RegisterScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        FirstNameField = new javax.swing.JTextField();
+        GameBurzaLogo = new javax.swing.JLabel();
+        BrandName = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        FIrstNameLabel = new javax.swing.JLabel();
+        FIrstNameLabel1 = new javax.swing.JLabel();
+        AgeLabel = new javax.swing.JLabel();
+        EmailField = new javax.swing.JTextField();
+        AgeLabel1 = new javax.swing.JLabel();
+        EmailLabel = new javax.swing.JLabel();
+        PasswordLabel = new javax.swing.JLabel();
+        PasswordField = new javax.swing.JTextField();
+        ConditionsCheckBox = new javax.swing.JCheckBox();
+        LastNameField = new javax.swing.JTextField();
+        AgeField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 0, 51));
+        setPreferredSize(new java.awt.Dimension(560, 700));
+
+        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1000, 700));
+
+        FirstNameField.setBackground(new java.awt.Color(255, 204, 204));
+        FirstNameField.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        FirstNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FirstNameFieldActionPerformed(evt);
+            }
+        });
+
+        GameBurzaLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        GameBurzaLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jhan Steven Cruz\\Downloads\\gameburzalogoreal.png")); // NOI18N
+        GameBurzaLogo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        BrandName.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        BrandName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        BrandName.setText("Gameburza");
+        BrandName.setVerifyInputWhenFocusTarget(false);
+        BrandName.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
+        jLabel1.setFont(new java.awt.Font("Nebula", 1, 12)); // NOI18N
+        jLabel1.setText("SIGN UP");
+
+        FIrstNameLabel.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        FIrstNameLabel.setText("FIRST NAME");
+        FIrstNameLabel.setToolTipText("");
+
+        FIrstNameLabel1.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        FIrstNameLabel1.setText("LAST NAME");
+        FIrstNameLabel1.setToolTipText("");
+
+        AgeLabel.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        AgeLabel.setText("AGE");
+        AgeLabel.setToolTipText("");
+
+        EmailField.setBackground(new java.awt.Color(255, 204, 204));
+        EmailField.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        EmailField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailFieldActionPerformed(evt);
+            }
+        });
+
+        AgeLabel1.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
+        AgeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        AgeLabel1.setText("<html><div style='text-align:center;'>**Please note that buyers below legal age will be asked for their <br>\nparent's consent.**</div></html>");
+        AgeLabel1.setToolTipText("");
+
+        EmailLabel.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        EmailLabel.setText("EMAIL");
+        EmailLabel.setToolTipText("");
+
+        PasswordLabel.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        PasswordLabel.setText("PASSWORD");
+        PasswordLabel.setToolTipText("");
+
+        PasswordField.setBackground(new java.awt.Color(255, 204, 204));
+        PasswordField.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        PasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordFieldActionPerformed(evt);
+            }
+        });
+
+        ConditionsCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConditionsCheckBoxActionPerformed(evt);
+            }
+        });
+
+        LastNameField.setBackground(new java.awt.Color(255, 204, 204));
+        LastNameField.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        LastNameField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LastNameFieldActionPerformed(evt);
+            }
+        });
+
+        AgeField.setBackground(new java.awt.Color(255, 204, 204));
+        AgeField.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        AgeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgeFieldActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(204, 204, 204)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BrandName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(GameBurzaLogo))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jLabel1))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FirstNameField)
+                                .addComponent(FIrstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(EmailField, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                                .addComponent(AgeLabel1)
+                                .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
+                                .addComponent(LastNameField)
+                                .addComponent(AgeField))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(ConditionsCheckBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(GameBurzaLogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BrandName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(20, 20, 20)
+                .addComponent(FIrstNameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(AgeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AgeLabel1)
+                .addGap(15, 15, 15)
+                .addComponent(EmailLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PasswordLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ConditionsCheckBox)
+                    .addComponent(jLabel2))
+                .addGap(100, 100, 100))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void FirstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FirstNameFieldActionPerformed
+
+    private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EmailFieldActionPerformed
+
+    private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordFieldActionPerformed
+
+    private void LastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LastNameFieldActionPerformed
+
+    private void AgeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgeFieldActionPerformed
+
+    private void ConditionsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConditionsCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConditionsCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +290,22 @@ public class RegisterScreen extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AgeField;
+    private javax.swing.JLabel AgeLabel;
+    private javax.swing.JLabel AgeLabel1;
+    private javax.swing.JLabel BrandName;
+    private javax.swing.JCheckBox ConditionsCheckBox;
+    private javax.swing.JTextField EmailField;
+    private javax.swing.JLabel EmailLabel;
+    private javax.swing.JLabel FIrstNameLabel;
+    private javax.swing.JLabel FIrstNameLabel1;
+    private javax.swing.JTextField FirstNameField;
+    private javax.swing.JLabel GameBurzaLogo;
+    private javax.swing.JTextField LastNameField;
+    private javax.swing.JTextField PasswordField;
+    private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
