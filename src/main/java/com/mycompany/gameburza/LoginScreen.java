@@ -4,17 +4,44 @@
  */
 package com.mycompany.gameburza;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
 /**
  *
  * @author sean
  */
 public class LoginScreen extends javax.swing.JFrame {
 
+    public static HashMap<String, String> users = new HashMap<>();
     /**
      * Creates new form LoginScreen
      */
     public LoginScreen() {
+        loadCredentialsFromFile();
         initComponents();
+    }
+
+    private void loadCredentialsFromFile() {
+        File file = new File("credentials.txt");
+
+        if (file.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    if (parts.length == 2) {
+                        users.put(parts[0], parts[1]); // Add username and password to HashMap
+                    }
+                }
+            } catch (IOException e) {
+                System.out.println("Error reading credentials file: " + e.getMessage());
+            }
+        }
     }
 
     /**
@@ -157,8 +184,31 @@ public class LoginScreen extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        dispose();
-        MainScreen.main(new String[]{});
+        String email = emailTextField.getText().trim();
+    String password = new String(passwordField.getPassword()).trim();
+    
+    if (email.isEmpty() || password.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Please enter both email and password.", 
+            "Login Error", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+        
+    // Check if email and password are valid
+    if (LoginScreen.users.containsKey(email) && LoginScreen.users.get(email).equals(password)) {
+        // Successful login
+        System.out.println("Login successful! Welcome, " + email);
+        dispose(); // Close the login screen
+        MainScreen.main(new String[]{}); // Open the main screen
+    } else {
+        // Invalid login
+        System.out.println("Login failed! Invalid email or password.");
+        javax.swing.JOptionPane.showMessageDialog(this, 
+            "Invalid email or password.", 
+            "Login Error", 
+            javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
@@ -172,7 +222,6 @@ public class LoginScreen extends javax.swing.JFrame {
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
-
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
