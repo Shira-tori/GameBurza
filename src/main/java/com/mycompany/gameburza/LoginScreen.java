@@ -60,7 +60,7 @@ public class LoginScreen extends javax.swing.JFrame {
         emailLabel.setText("Email Address:");
 
         passwordLabel.setForeground(new java.awt.Color(255, 255, 255));
-        passwordLabel.setText("Password");
+        passwordLabel.setText("Password:");
 
         loginButton.setText("Login");
         loginButton.setName("loginButton"); // NOI18N
