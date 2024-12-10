@@ -16,4 +16,4 @@ public class GameBurza {
     public static void main(String[] args) {
         LoginScreen.main(new String[]{});
     }
-}
+} //bisaya aqS

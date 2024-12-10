@@ -31,11 +31,11 @@ public class ItemPanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 153, 153));
+        setPreferredSize(new java.awt.Dimension(200, 300));
 
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel1.setText("Item");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/gameburza/467506675_1764897530979412_3574694328729513326_n.png"))); // NOI18N
         jLabel2.setText("picture");
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
