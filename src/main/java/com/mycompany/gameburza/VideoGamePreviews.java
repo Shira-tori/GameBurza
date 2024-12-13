@@ -13,7 +13,8 @@ public class VideoGamePreviews {
         this.platforms = platforms;
     }
 
-    public void displayGameDetails() {
+
+    public void displayPreviewDetails() {
         System.out.println("Title: " + title);
         System.out.println("Release Date: " + releaseDate);
         System.out.println("Description: " + description);

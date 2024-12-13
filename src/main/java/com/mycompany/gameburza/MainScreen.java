@@ -55,6 +55,21 @@ public class MainScreen extends javax.swing.JFrame {
             itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title));
         }
     }
+    private static void initializeCredits() {
+    int[] availableDenominations = {10, 25, 20};
+    
+    // Adding Credit Items
+    GameBurza.credits.add(new CreditItem("PlayStation Network (PSN) Wallet Top-up", availableDenominations, "PSN"));
+    GameBurza.credits.add(new CreditItem("Steam Wallet Gift Card (Digital Code)", availableDenominations, "Steam"));
+    GameBurza.credits.add(new CreditItem("Garena Shells Scratch Card", availableDenominations, "Garena"));
+    GameBurza.credits.add(new CreditItem("Google Play Gift Card (Physical)", availableDenominations, "Google Play"));
+    
+    // Assuming you have a UI panel `itemsPanel2` to display the credit items
+    for (int i = 0; i < GameBurza.credits.size(); i++) {
+        CreditItem credit = GameBurza.credits.get(i);
+        // Display name, platform, and denominations in the items panel
+    }
+}
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -173,7 +188,7 @@ public class MainScreen extends javax.swing.JFrame {
         merchandiseButton.setBackground(new java.awt.Color(184, 30, 38));
         merchandiseButton.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
         merchandiseButton.setForeground(new java.awt.Color(255, 255, 255));
-        merchandiseButton.setText("MERCHANDISE");
+        merchandiseButton.setText("MERCH");
         merchandiseButton.setBorder(null);
         merchandiseButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         merchandiseButton.setPreferredSize(new java.awt.Dimension(50, 50));
@@ -194,14 +209,14 @@ public class MainScreen extends javax.swing.JFrame {
             topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topMenuPanelLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gamesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(creditsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(merchandiseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(298, 298, 298)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(merchandiseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(341, 341, 341)
                 .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(accountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,11 +253,11 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+            .addGap(0, 305, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 16, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,21 +267,19 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 886, Short.MAX_VALUE))
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 883, Short.MAX_VALUE)
+                .addContainerGap())
             .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(487, 487, 487)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(179, 257, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(scrollPane))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -285,10 +298,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_accountButtonMouseClicked
 
     private void gamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesButtonActionPerformed
-        if(gamesButton.isSelected() == true && (creditsButton.isSelected() == true || merchandiseButton.isSelected() == true)){
-            creditsButton.setSelected(false);
-            merchandiseButton.setSelected(false);
-        }
+           
     }//GEN-LAST:event_gamesButtonActionPerformed
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
@@ -296,6 +306,8 @@ public class MainScreen extends javax.swing.JFrame {
             gamesButton.setSelected(false);
             merchandiseButton.setSelected(false);
         }
+        itemsPanel2.removeAll();
+        itemsPanel2.repaint();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
     private void merchandiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_merchandiseButtonActionPerformed
@@ -306,7 +318,15 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_merchandiseButtonActionPerformed
 
     private void gamesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamesButtonMouseClicked
-
+        if(gamesButton.isSelected() == true && (creditsButton.isSelected() == true || merchandiseButton.isSelected() == true)){
+            creditsButton.setSelected(false);
+            merchandiseButton.setSelected(false);
+        }
+        else{
+            gamesButton.setSelected(true);
+        }
+        itemsPanel2.removeAll();
+        loadProducts();  
     }//GEN-LAST:event_gamesButtonMouseClicked
 
     private void creditsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsButtonMouseClicked

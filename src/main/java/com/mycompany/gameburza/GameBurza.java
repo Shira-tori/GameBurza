@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class GameBurza {
     public static List<VideoGamePreviews> games = new ArrayList<>();
+    public static List<CreditItem> credits = new ArrayList<>();
+    public static List<MerchItem> merch = new ArrayList<>();
     public static LoginScreen loginScreen = new LoginScreen();
     public static RegisterScreen registerScreen = new RegisterScreen();
     public static MainScreen mainScreen = new MainScreen();
