@@ -26,59 +26,58 @@ public class ItemPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        ItemPricePanel = new javax.swing.JLabel();
+        GTAVButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 153, 153));
 
-        jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel1.setText("Item");
+        ItemPricePanel.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
+        ItemPricePanel.setText("Price");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/467506675_1764897530979412_3574694328729513326_n.png"))); // NOI18N
-        jLabel2.setText("picture");
-        jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        jLabel2.setFocusable(false);
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jLabel2.setInheritsPopupMenu(false);
-        jLabel2.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        jLabel4.setText("Price");
+        GTAVButton.setBackground(new java.awt.Color(255, 153, 153));
+        GTAVButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
+        GTAVButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GTAVlogo (2).png"))); // NOI18N
+        GTAVButton.setText("GTa V SOBRaNG GaNDa");
+        GTAVButton.setBorderPainted(false);
+        GTAVButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        GTAVButton.setIconTextGap(10);
+        GTAVButton.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        GTAVButton.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+        GTAVButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GTAVButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel4)))
+                    .addComponent(ItemPricePanel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(GTAVButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel4)
+                .addGap(36, 36, 36)
+                .addComponent(GTAVButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addComponent(ItemPricePanel)
                 .addGap(16, 16, 16))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void GTAVButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GTAVButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GTAVButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton GTAVButton;
+    private javax.swing.JLabel ItemPricePanel;
     // End of variables declaration//GEN-END:variables
 }
