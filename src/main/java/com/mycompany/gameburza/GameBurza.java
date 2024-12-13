@@ -14,6 +14,6 @@ public class GameBurza {
     public static MainScreen mainScreen = new MainScreen();
     
     public static void main(String[] args) {
-        LoginScreen.main(new String[]{});
+        loginScreen.setVisible(true);
     }
 }

@@ -35,10 +35,7 @@ public class ItemPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel1.setText("Item");
 
-        jLabel2.setBackground(new java.awt.Color(255, 153, 153));
-        jLabel2.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/gameburza/GTAVlogo (2).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/467506675_1764897530979412_3574694328729513326_n.png"))); // NOI18N
         jLabel2.setText("picture");
         jLabel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         jLabel2.setFocusable(false);
