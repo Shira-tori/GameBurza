@@ -38,7 +38,7 @@ public class CartUI extends javax.swing.JFrame {
         EditCartButton = new javax.swing.JButton();
         CartUIHomeButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(184, 30, 38));
 
         CartLowerUIPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -85,11 +85,10 @@ public class CartUI extends javax.swing.JFrame {
         CartLowerUIPanelLayout.setVerticalGroup(
             CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(CheckOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(TotalCartLabel)
-                    .addComponent(TotalCartLabel1)))
+                .addComponent(jCheckBox1)
+                .addComponent(TotalCartLabel)
+                .addComponent(TotalCartLabel1))
+            .addComponent(CheckOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout CartUIPanelLayout = new javax.swing.GroupLayout(CartUIPanel);
@@ -104,7 +103,7 @@ public class CartUI extends javax.swing.JFrame {
         CartUIPanelLayout.setVerticalGroup(
             CartUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CartUIPanelLayout.createSequentialGroup()
-                .addContainerGap(505, Short.MAX_VALUE)
+                .addContainerGap(495, Short.MAX_VALUE)
                 .addComponent(CartLowerUIPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -130,7 +129,7 @@ public class CartUI extends javax.swing.JFrame {
         CartUIHomeButton.setBackground(new java.awt.Color(184, 30, 38));
         CartUIHomeButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
         CartUIHomeButton.setForeground(new java.awt.Color(255, 255, 255));
-        CartUIHomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/gameburza/gameburza50x50.png"))); // NOI18N
+        CartUIHomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gameburza50x50_1.png"))); // NOI18N
         CartUIHomeButton.setText("GAMEBURZA");
         CartUIHomeButton.setBorderPainted(false);
 

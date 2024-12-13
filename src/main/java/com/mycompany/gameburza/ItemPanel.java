@@ -36,7 +36,7 @@ public class ItemPanel extends javax.swing.JPanel {
 
         GTAVButton.setBackground(new java.awt.Color(255, 153, 153));
         GTAVButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
-        GTAVButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GTAVlogo (2).png"))); // NOI18N
+        GTAVButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GTAVlogo (2).png"))); // NOI18N
         GTAVButton.setText("GTa V SOBRaNG GaNDa");
         GTAVButton.setBorderPainted(false);
         GTAVButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
