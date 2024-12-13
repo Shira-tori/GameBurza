@@ -95,8 +95,8 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="creditsButton" min="-2" pref="88" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="merchandiseButton" min="-2" pref="137" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
+                  <Component id="merchandiseButton" min="-2" pref="80" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="324" max="-2" attributes="0"/>
                   <Component id="cartButton" min="-2" pref="93" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="accountButton" min="-2" pref="110" max="-2" attributes="0"/>
