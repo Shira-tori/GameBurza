@@ -166,9 +166,6 @@
         <Component class="javax.swing.JLabel" name="GameBurzaLogo">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Jhan Steven Cruz\Downloads\gameburza50x50.png"/>
-            </Property>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>

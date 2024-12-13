@@ -61,7 +61,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
 
         GameBurzaLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        GameBurzaLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jhan Steven Cruz\\Downloads\\gameburza50x50.png")); // NOI18N
         GameBurzaLogo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         BrandName.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N

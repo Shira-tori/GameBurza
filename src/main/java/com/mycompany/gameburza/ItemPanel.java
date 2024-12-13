@@ -37,6 +37,7 @@ public class ItemPanel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/467506675_1764897530979412_3574694328729513326_n.png"))); // NOI18N
         jLabel2.setText("picture");
+        jLabel2.setPreferredSize(new java.awt.Dimension(200, 300));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jLabel4.setText("Price");

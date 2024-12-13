@@ -43,8 +43,9 @@ public class LoginScreen extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(184, 30, 38));
 
-        gameBurzaLabel.setFont(new java.awt.Font("sansserif", 1, 36)); // NOI18N
+        gameBurzaLabel.setFont(new java.awt.Font("Nebula", 1, 36)); // NOI18N
         gameBurzaLabel.setForeground(new java.awt.Color(255, 255, 255));
+        gameBurzaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         gameBurzaLabel.setText("GameBurza");
 
         emailTextField.setToolTipText("Email Address");
@@ -111,11 +112,8 @@ public class LoginScreen extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(202, 202, 202)
                         .addComponent(loginButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 133, Short.MAX_VALUE)
-                .addComponent(gameBurzaLabel)
-                .addGap(120, 120, 120))
+                .addContainerGap(56, Short.MAX_VALUE))
+            .addComponent(gameBurzaLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +134,7 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(noAccountLabel)
                     .addComponent(registerButton))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,7 +143,7 @@ public class LoginScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(700, 700, 700))
+                .addGap(691, 691, 691))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,7 +156,7 @@ public class LoginScreen extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         dispose();
-        MainScreen.main(new String[]{});
+        GameBurza.mainScreen.setVisible(true);
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
@@ -166,7 +164,8 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-                // TODO add your handling code here:
+        dispose();
+        GameBurza.registerScreen.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
 
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
