@@ -30,12 +30,13 @@ public class ItemPanel extends javax.swing.JPanel {
         GTAVButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 153, 153));
+        setPreferredSize(new java.awt.Dimension(200, 300));
 
         ItemPricePanel.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         ItemPricePanel.setText("Price");
 
         GTAVButton.setBackground(new java.awt.Color(255, 153, 153));
-        GTAVButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
+        GTAVButton.setFont(new java.awt.Font("Nebula", 0, 10)); // NOI18N
         GTAVButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GTAVlogo (2).png"))); // NOI18N
         GTAVButton.setText("GTa V SOBRaNG GaNDa");
         GTAVButton.setBorderPainted(false);
@@ -54,20 +55,18 @@ public class ItemPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ItemPricePanel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(GTAVButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(120, 120, 120)
+                .addComponent(ItemPricePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(GTAVButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(GTAVButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(ItemPricePanel)
-                .addGap(16, 16, 16))
+                .addContainerGap()
+                .addComponent(GTAVButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(ItemPricePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

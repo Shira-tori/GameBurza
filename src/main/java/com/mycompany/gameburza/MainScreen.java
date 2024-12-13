@@ -40,6 +40,7 @@ public class MainScreen extends javax.swing.JFrame {
         itemPanel3 = new com.mycompany.gameburza.ItemPanel();
         itemPanel4 = new com.mycompany.gameburza.ItemPanel();
         itemPanel5 = new com.mycompany.gameburza.ItemPanel();
+        itemPanel6 = new com.mycompany.gameburza.ItemPanel();
 
         jPopupMenu2.setPopupSize(new java.awt.Dimension(200, 100));
 
@@ -51,11 +52,15 @@ public class MainScreen extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GameBurza");
+        setPreferredSize(new java.awt.Dimension(1200, 825));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1000, 700));
 
         topMenuPanel.setBackground(new java.awt.Color(184, 30, 38));
 
         gameburzaLabel.setFont(new java.awt.Font("Nebula", 0, 24)); // NOI18N
         gameburzaLabel.setForeground(new java.awt.Color(255, 255, 255));
+        gameburzaLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gameburza50x50.png"))); // NOI18N
         gameburzaLabel.setText("GameBurza");
 
         cartButton.setBackground(new java.awt.Color(184, 30, 38));
@@ -109,21 +114,26 @@ public class MainScreen extends javax.swing.JFrame {
             .addGroup(topMenuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                    .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
+        itemsPanel2.setMinimumSize(new java.awt.Dimension(1538, 500));
+        itemsPanel2.setPreferredSize(new java.awt.Dimension(932, 727));
         itemsPanel2.add(itemPanel1);
         itemsPanel2.add(itemPanel2);
         itemsPanel2.add(itemPanel3);
         itemsPanel2.add(itemPanel4);
         itemsPanel2.add(itemPanel5);
+        itemsPanel2.add(itemPanel6);
 
         scrollPane.setViewportView(itemsPanel2);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,15 +141,15 @@ public class MainScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 827, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0))
         );
 
@@ -203,6 +213,7 @@ public class MainScreen extends javax.swing.JFrame {
     private com.mycompany.gameburza.ItemPanel itemPanel3;
     private com.mycompany.gameburza.ItemPanel itemPanel4;
     private com.mycompany.gameburza.ItemPanel itemPanel5;
+    private com.mycompany.gameburza.ItemPanel itemPanel6;
     private com.mycompany.gameburza.ItemsPanel itemsPanel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

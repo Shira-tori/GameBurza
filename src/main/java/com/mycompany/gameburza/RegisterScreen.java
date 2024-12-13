@@ -45,7 +45,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         AgreementSignUp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 51));
         setPreferredSize(new java.awt.Dimension(515, 700));
 
