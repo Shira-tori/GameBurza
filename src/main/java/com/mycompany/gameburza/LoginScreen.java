@@ -35,6 +35,7 @@ public class LoginScreen extends javax.swing.JFrame {
         noAccountLabel = new javax.swing.JLabel();
         registerButton = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GameBurza");
@@ -46,7 +47,7 @@ public class LoginScreen extends javax.swing.JFrame {
         gameBurzaLabel.setFont(new java.awt.Font("Nebula", 1, 36)); // NOI18N
         gameBurzaLabel.setForeground(new java.awt.Color(255, 255, 255));
         gameBurzaLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        gameBurzaLabel.setText("GameBurza");
+        gameBurzaLabel.setText("GAMEBURZA");
 
         emailTextField.setToolTipText("Email Address");
         emailTextField.setMinimumSize(new java.awt.Dimension(64, 35));
@@ -92,6 +93,9 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gameburza50x50_1.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -99,28 +103,38 @@ public class LoginScreen extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(passwordLabel)
-                            .addComponent(emailLabel)
-                            .addComponent(emailTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(noAccountLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(registerButton))
-                            .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)))
+                                .addGap(75, 75, 75)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(passwordLabel)
+                                    .addComponent(emailLabel)
+                                    .addComponent(emailTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(noAccountLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(registerButton))
+                                    .addComponent(passwordField, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(202, 202, 202)
+                                .addComponent(loginButton))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(204, 204, 204)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(loginButton)))
-                .addContainerGap(56, Short.MAX_VALUE))
-            .addComponent(gameBurzaLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(gameBurzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addGap(85, 85, 85)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gameBurzaLabel)
-                .addGap(106, 106, 106)
+                .addGap(118, 118, 118)
                 .addComponent(emailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -134,7 +148,7 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(noAccountLabel)
                     .addComponent(registerButton))
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -143,7 +157,7 @@ public class LoginScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(691, 691, 691))
+                .addGap(592, 592, 592))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,37 +170,6 @@ public class LoginScreen extends javax.swing.JFrame {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         dispose();
-                // Action Games
-        GameBurza.games.add(new VideoGamePreviews("Grand Theft Auto V", 2013, "An open-world action-adventure game with heist missions.", "PS5, Xbox, Steam"));
-        GameBurza.games.add(new VideoGamePreviews("DOOM Eternal", 2020, "A fast-paced first-person shooter battling demonic forces.", "PS5, Xbox, Steam"));
-
-        // Adventure Games
-        GameBurza.games.add(new VideoGamePreviews("The Legend of Zelda: Breath of the Wild", 2017, "An open-world action-adventure game in a vast, post-apocalyptic Hyrule.", "Nintendo eShop"));
-        GameBurza.games.add(new VideoGamePreviews("Life is Strange", 2015, "A graphic adventure game that follows a young girl with time-manipulation powers.", "Steam"));
-
-        // RPG Games
-        GameBurza.games.add(new VideoGamePreviews("The Witcher 3: Wild Hunt", 2015, "An open-world RPG where Geralt of Rivia battles monsters and searches for his adopted daughter.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("Cyberpunk 2077", 2020, "An open-world RPG set in a dystopian future, featuring advanced technology and cybernetics.", "Steam"));
-
-        // Simulation Games
-        GameBurza.games.add(new VideoGamePreviews("The Sims 4", 2014, "A life simulation game where players create and control people in a virtual world.", "PS4, Xbox, Steam, Origin"));
-        GameBurza.games.add(new VideoGamePreviews("Animal Crossing: New Horizons", 2020, "A social simulation game where players develop a deserted island and interact with animal villagers.", "Nintendo eShop"));
-
-        // Strategy Games
-        GameBurza.games.add(new VideoGamePreviews("Civilization VI", 2016, "A turn-based strategy game where players build and manage an empire through the ages.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("XCOM 2", 2016, "A turn-based tactics game where players lead resistance forces against an alien occupation.", "Steam"));
-
-        // Sports Games
-        GameBurza.games.add(new VideoGamePreviews("FIFA 24", 2023, "A football simulation game featuring real teams and leagues.", "Origin"));
-        GameBurza.games.add(new VideoGamePreviews("NBA 2K24", 2023, "A basketball simulation game featuring NBA teams and players.", "Steam"));
-
-        // Puzzle Games
-        GameBurza.games.add(new VideoGamePreviews("Tetris Effect", 2018, "A puzzle game that combines classic Tetris gameplay with music and visual effects.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("Portal 2", 2011, "A first-person puzzle-platform game where players solve puzzles using a portal gun.", "Steam"));
-
-        // Horror Games
-        GameBurza.games.add(new VideoGamePreviews("Resident Evil Village", 2021, "A survival horror game where players battle through a village terrorized by monsters.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("Dead Space (Remake)", 2023, "A sci-fi survival horror game where players fight necromorphs aboard a stranded spaceship.", "Steam"));
         GameBurza.mainScreen.setVisible(true);
         GameBurza.mainScreen.loadProducts();
     }//GEN-LAST:event_loginButtonActionPerformed
@@ -241,6 +224,7 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel gameBurzaLabel;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton loginButton;
     private javax.swing.JLabel noAccountLabel;

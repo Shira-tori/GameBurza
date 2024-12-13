@@ -127,6 +127,11 @@ public class CartUI extends javax.swing.JFrame {
         EditCartButton.setForeground(new java.awt.Color(255, 255, 255));
         EditCartButton.setText("EDIT");
         EditCartButton.setBorderPainted(false);
+        EditCartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditCartButtonActionPerformed(evt);
+            }
+        });
 
         CartUIHomeButton.setBackground(new java.awt.Color(184, 30, 38));
         CartUIHomeButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
@@ -135,6 +140,11 @@ public class CartUI extends javax.swing.JFrame {
         CartUIHomeButton.setText("GAMEBURZA");
         CartUIHomeButton.setBorder(null);
         CartUIHomeButton.setBorderPainted(false);
+        CartUIHomeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CartUIHomeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CartUpperUiPanelLayout = new javax.swing.GroupLayout(CartUpperUiPanel);
         CartUpperUiPanel.setLayout(CartUpperUiPanelLayout);
@@ -189,6 +199,14 @@ public class CartUI extends javax.swing.JFrame {
     private void CheckOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckOutButtonActionPerformed
+
+    private void EditCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditCartButtonActionPerformed
+        GenerateReceipt.main(new String[]{});        // TODO add your handling code here:
+    }//GEN-LAST:event_EditCartButtonActionPerformed
+
+    private void CartUIHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CartUIHomeButtonActionPerformed
+        MainScreen.main(new String[]{});        // TODO add your handling code here:
+    }//GEN-LAST:event_CartUIHomeButtonActionPerformed
 
     /**
      * @param args the command line arguments
