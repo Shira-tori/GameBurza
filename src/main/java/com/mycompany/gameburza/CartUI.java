@@ -31,17 +31,15 @@ public class CartUI extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         TotalCartLabel = new javax.swing.JLabel();
         TotalCartLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        CheckOutButton = new javax.swing.JButton();
         CartUpperUiPanel = new javax.swing.JPanel();
-        CartUILogo = new javax.swing.JLabel();
-        CartUIBrandName = new javax.swing.JLabel();
         CartLabel = new javax.swing.JLabel();
         ItemsLabel = new javax.swing.JLabel();
         EditCartButton = new javax.swing.JButton();
+        CartUIHomeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(184, 30, 38));
-        setPreferredSize(new java.awt.Dimension(1000, 700));
 
         CartLowerUIPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -59,11 +57,16 @@ public class CartUI extends javax.swing.JFrame {
         TotalCartLabel1.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
         TotalCartLabel1.setText("$0");
 
-        jButton1.setBackground(new java.awt.Color(184, 30, 38));
-        jButton1.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("CHECK OUT");
-        jButton1.setBorderPainted(false);
+        CheckOutButton.setBackground(new java.awt.Color(184, 30, 38));
+        CheckOutButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
+        CheckOutButton.setForeground(new java.awt.Color(255, 255, 255));
+        CheckOutButton.setText("CHECK OUT");
+        CheckOutButton.setBorderPainted(false);
+        CheckOutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckOutButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CartLowerUIPanelLayout = new javax.swing.GroupLayout(CartLowerUIPanel);
         CartLowerUIPanel.setLayout(CartLowerUIPanelLayout);
@@ -72,17 +75,17 @@ public class CartUI extends javax.swing.JFrame {
             .addGroup(CartLowerUIPanelLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
                 .addComponent(TotalCartLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TotalCartLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(CheckOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         CartLowerUIPanelLayout.setVerticalGroup(
             CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                .addComponent(CheckOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(TotalCartLabel)
@@ -101,22 +104,11 @@ public class CartUI extends javax.swing.JFrame {
         CartUIPanelLayout.setVerticalGroup(
             CartUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CartUIPanelLayout.createSequentialGroup()
-                .addGap(0, 515, Short.MAX_VALUE)
+                .addContainerGap(505, Short.MAX_VALUE)
                 .addComponent(CartLowerUIPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         CartUpperUiPanel.setBackground(new java.awt.Color(184, 30, 38));
-
-        CartUILogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CartUILogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jhan Steven Cruz\\GameBurza\\src\\main\\java\\com\\mycompany\\gameburza\\icons\\gameburza50x50.png")); // NOI18N
-        CartUILogo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        CartUIBrandName.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
-        CartUIBrandName.setForeground(new java.awt.Color(255, 255, 255));
-        CartUIBrandName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        CartUIBrandName.setText("GAmeburzA");
-        CartUIBrandName.setVerifyInputWhenFocusTarget(false);
-        CartUIBrandName.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         CartLabel.setBackground(new java.awt.Color(255, 255, 255));
         CartLabel.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
@@ -135,36 +127,37 @@ public class CartUI extends javax.swing.JFrame {
         EditCartButton.setText("EDIT");
         EditCartButton.setBorderPainted(false);
 
+        CartUIHomeButton.setBackground(new java.awt.Color(184, 30, 38));
+        CartUIHomeButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
+        CartUIHomeButton.setForeground(new java.awt.Color(255, 255, 255));
+        CartUIHomeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/gameburza/gameburza50x50.png"))); // NOI18N
+        CartUIHomeButton.setText("GAMEBURZA");
+        CartUIHomeButton.setBorderPainted(false);
+
         javax.swing.GroupLayout CartUpperUiPanelLayout = new javax.swing.GroupLayout(CartUpperUiPanel);
         CartUpperUiPanel.setLayout(CartUpperUiPanelLayout);
         CartUpperUiPanelLayout.setHorizontalGroup(
             CartUpperUiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CartUpperUiPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(CartUILogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CartUIBrandName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(151, 151, 151)
+                .addComponent(CartUIHomeButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ItemsLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addGap(132, 132, 132)
                 .addComponent(EditCartButton)
                 .addGap(30, 30, 30))
         );
         CartUpperUiPanelLayout.setVerticalGroup(
             CartUpperUiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CartUpperUiPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(CartUpperUiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(CartUILogo)
-                    .addGroup(CartUpperUiPanelLayout.createSequentialGroup()
-                        .addComponent(CartUIBrandName)
-                        .addGap(20, 20, 20))
-                    .addGroup(CartUpperUiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ItemsLabel)
-                        .addComponent(EditCartButton)))
+                .addGap(19, 19, 19)
+                .addGroup(CartUpperUiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ItemsLabel)
+                    .addComponent(EditCartButton)
+                    .addComponent(CartUIHomeButton))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -190,6 +183,10 @@ public class CartUI extends javax.swing.JFrame {
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void CheckOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CheckOutButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,15 +226,14 @@ public class CartUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CartLabel;
     private javax.swing.JPanel CartLowerUIPanel;
-    private javax.swing.JLabel CartUIBrandName;
-    private javax.swing.JLabel CartUILogo;
+    private javax.swing.JButton CartUIHomeButton;
     private javax.swing.JPanel CartUIPanel;
     private javax.swing.JPanel CartUpperUiPanel;
+    private javax.swing.JButton CheckOutButton;
     private javax.swing.JButton EditCartButton;
     private javax.swing.JLabel ItemsLabel;
     private javax.swing.JLabel TotalCartLabel;
     private javax.swing.JLabel TotalCartLabel1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBox jCheckBox1;
     // End of variables declaration//GEN-END:variables
 }
