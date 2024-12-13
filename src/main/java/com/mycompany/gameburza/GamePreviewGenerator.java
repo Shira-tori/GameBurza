@@ -1,3 +1,4 @@
+import com.mycompany.gameburza.VideoGamePreviews;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class GamePreviewGenerator {
     public static void main(String[] args) {
         // Creating a list to store all the games
         List<VideoGamePreviews> games = new ArrayList<>();
+        
 
         // Action Games
         games.add(new VideoGamePreviews("Grand Theft Auto V", 2013, "An open-world action-adventure game with heist missions.", "PS5, Xbox, Steam"));

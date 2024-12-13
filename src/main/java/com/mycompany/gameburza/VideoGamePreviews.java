@@ -1,3 +1,5 @@
+package com.mycompany.gameburza;
+
 public class VideoGamePreviews {
     String title;
     int releaseDate;

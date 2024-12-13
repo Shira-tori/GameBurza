@@ -18,6 +18,11 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
     }
 
+    public void loadProducts(){
+        for(int i = 0; i < GameBurza.games.size(); i++){
+            itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title));
+        }
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,9 +40,9 @@ public class MainScreen extends javax.swing.JFrame {
         gameburzaLabel = new javax.swing.JLabel();
         cartButton = new javax.swing.JButton();
         accountButton = new javax.swing.JButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        gamesButton = new javax.swing.JToggleButton();
+        creditsButton = new javax.swing.JToggleButton();
+        merchandiseButton = new javax.swing.JToggleButton();
         scrollPane = new javax.swing.JScrollPane();
         itemsPanel2 = new com.mycompany.gameburza.ItemsPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -96,43 +101,58 @@ public class MainScreen extends javax.swing.JFrame {
             }
         });
 
-        jToggleButton1.setBackground(new java.awt.Color(184, 30, 38));
-        jToggleButton1.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("GAMES");
-        jToggleButton1.setBorder(null);
-        jToggleButton1.setBorderPainted(false);
-        jToggleButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jToggleButton1.setPreferredSize(new java.awt.Dimension(50, 50));
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        gamesButton.setBackground(new java.awt.Color(184, 30, 38));
+        gamesButton.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
+        gamesButton.setForeground(new java.awt.Color(255, 255, 255));
+        gamesButton.setText("GAMES");
+        gamesButton.setBorder(null);
+        gamesButton.setBorderPainted(false);
+        gamesButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        gamesButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        gamesButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                gamesButtonMouseClicked(evt);
+            }
+        });
+        gamesButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                gamesButtonActionPerformed(evt);
             }
         });
 
-        jToggleButton2.setBackground(new java.awt.Color(184, 30, 38));
-        jToggleButton2.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setText("CREDITS");
-        jToggleButton2.setBorder(null);
-        jToggleButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jToggleButton2.setPreferredSize(new java.awt.Dimension(50, 50));
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        creditsButton.setBackground(new java.awt.Color(184, 30, 38));
+        creditsButton.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
+        creditsButton.setForeground(new java.awt.Color(255, 255, 255));
+        creditsButton.setText("CREDITS");
+        creditsButton.setBorder(null);
+        creditsButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        creditsButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        creditsButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                creditsButtonMouseClicked(evt);
+            }
+        });
+        creditsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
+                creditsButtonActionPerformed(evt);
             }
         });
 
-        jToggleButton3.setBackground(new java.awt.Color(184, 30, 38));
-        jToggleButton3.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
-        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton3.setText("MERCHANDISE");
-        jToggleButton3.setBorder(null);
-        jToggleButton3.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jToggleButton3.setPreferredSize(new java.awt.Dimension(50, 50));
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+        merchandiseButton.setBackground(new java.awt.Color(184, 30, 38));
+        merchandiseButton.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
+        merchandiseButton.setForeground(new java.awt.Color(255, 255, 255));
+        merchandiseButton.setText("MERCHANDISE");
+        merchandiseButton.setBorder(null);
+        merchandiseButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        merchandiseButton.setPreferredSize(new java.awt.Dimension(50, 50));
+        merchandiseButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                merchandiseButtonMouseClicked(evt);
+            }
+        });
+        merchandiseButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
+                merchandiseButtonActionPerformed(evt);
             }
         });
 
@@ -142,18 +162,18 @@ public class MainScreen extends javax.swing.JFrame {
             topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topMenuPanelLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE)
+                .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gamesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(creditsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(merchandiseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(298, 298, 298)
                 .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(accountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(0, 0, 0))
         );
         topMenuPanelLayout.setVerticalGroup(
             topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,17 +183,22 @@ public class MainScreen extends javax.swing.JFrame {
                     .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(gamesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(creditsButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(merchandiseButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        scrollPane.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        scrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        gamesButton.setSelected(true);
+        if (gamesButton.isSelected() == true){
+            gamesButton.setSelected(false);
+        }
+        if (merchandiseButton.isSelected() == true){
+            merchandiseButton.setSelected(false);
+        }
 
-        itemsPanel2.setMinimumSize(new java.awt.Dimension(1538, 500));
-        itemsPanel2.setPreferredSize(new java.awt.Dimension(932, 727));
+        itemsPanel2.setMaximumSize(new java.awt.Dimension(300, 500));
+        itemsPanel2.setMinimumSize(new java.awt.Dimension(300, 500));
         scrollPane.setViewportView(itemsPanel2);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
@@ -181,33 +206,31 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 282, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 16, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, 0)
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE))
+            .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 729, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
@@ -225,17 +248,38 @@ public class MainScreen extends javax.swing.JFrame {
         jPopupMenu2.show(accountButton, 0, 0);
     }//GEN-LAST:event_accountButtonMouseClicked
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void gamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesButtonActionPerformed
+        if(gamesButton.isSelected() == true && (creditsButton.isSelected() == true || merchandiseButton.isSelected() == true)){
+            creditsButton.setSelected(false);
+            merchandiseButton.setSelected(false);
+        }
+    }//GEN-LAST:event_gamesButtonActionPerformed
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
+        if(creditsButton.isSelected() == true && (gamesButton.isSelected() == true || merchandiseButton.isSelected() == true)){
+            gamesButton.setSelected(false);
+            merchandiseButton.setSelected(false);
+        }
+    }//GEN-LAST:event_creditsButtonActionPerformed
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+    private void merchandiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_merchandiseButtonActionPerformed
+        if(merchandiseButton.isSelected() == true && (gamesButton.isSelected() == true || creditsButton.isSelected() == true)){
+             gamesButton.setSelected(false);
+             creditsButton.setSelected(false);
+         }
+    }//GEN-LAST:event_merchandiseButtonActionPerformed
+
+    private void gamesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamesButtonMouseClicked
+
+    }//GEN-LAST:event_gamesButtonMouseClicked
+
+    private void creditsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsButtonMouseClicked
+
+    }//GEN-LAST:event_creditsButtonMouseClicked
+
+    private void merchandiseButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_merchandiseButtonMouseClicked
+
+    }//GEN-LAST:event_merchandiseButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -276,15 +320,15 @@ public class MainScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton accountButton;
     private javax.swing.JButton cartButton;
+    private javax.swing.JToggleButton creditsButton;
     private javax.swing.JLabel gameburzaLabel;
+    private javax.swing.JToggleButton gamesButton;
     private com.mycompany.gameburza.ItemsPanel itemsPanel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu2;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton merchandiseButton;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JPanel topMenuPanel;
     // End of variables declaration//GEN-END:variables

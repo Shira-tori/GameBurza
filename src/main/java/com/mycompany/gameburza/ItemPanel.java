@@ -13,8 +13,9 @@ public class ItemPanel extends javax.swing.JPanel {
     /**
      * Creates new form ItemPanel
      */
-    public ItemPanel() {
+    public ItemPanel(String title) {
         initComponents();
+        GTAVButton.setText(title);
     }
 
     /**
