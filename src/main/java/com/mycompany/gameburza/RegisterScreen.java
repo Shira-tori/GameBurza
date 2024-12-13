@@ -4,6 +4,8 @@
  */
 package com.mycompany.gameburza;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sean
@@ -275,6 +277,10 @@ public class RegisterScreen extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        if(!ConditionsCheckBox.isSelected()){
+            jButton1.setEnabled(false);
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -292,7 +298,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void FirstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameFieldActionPerformed
-        // TODO add your handling code here:
+        System.out.println(FirstNameField.getText());
     }//GEN-LAST:event_FirstNameFieldActionPerformed
 
     private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
@@ -304,11 +310,17 @@ public class RegisterScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_LastNameFieldActionPerformed
 
     private void AgeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeFieldActionPerformed
-        // TODO add your handling code here:
+        if(Integer.parseInt(AgeField.getText() ) < 18){
+            JOptionPane.showMessageDialog(rootPane, "BAWAL ANG BATA DITO!");
+        }
     }//GEN-LAST:event_AgeFieldActionPerformed
 
     private void ConditionsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConditionsCheckBoxActionPerformed
-        // TODO add your handling code here:
+        if(ConditionsCheckBox.isSelected()){
+            jButton1.setEnabled(true);
+            return;
+        }
+        jButton1.setEnabled(false);
     }//GEN-LAST:event_ConditionsCheckBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -316,7 +328,8 @@ public class RegisterScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void RegisterBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBackButtonActionPerformed
-        LoginScreen.main(new String[]{});        // TODO add your handling code here:
+        dispose();
+        GameBurza.loginScreen.setVisible(true);
     }//GEN-LAST:event_RegisterBackButtonActionPerformed
 
     /**
