@@ -3,7 +3,7 @@
  */
 
 package com.mycompany.gameburza;
-
+import java.util.LinkedList;
 /**
  *
  * @author sean
