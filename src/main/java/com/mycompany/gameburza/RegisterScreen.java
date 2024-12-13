@@ -50,6 +50,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 51));
         setPreferredSize(new java.awt.Dimension(515, 740));
+        setResizable(false);
         setSize(new java.awt.Dimension(515, 730));
 
         SignUpPanel.setBackground(new java.awt.Color(184, 30, 38));
@@ -220,8 +221,8 @@ public class RegisterScreen extends javax.swing.JFrame {
                                         .addComponent(LastNameField)
                                         .addComponent(AgeField)
                                         .addComponent(jPasswordField1)))))
-                        .addGap(0, 15, Short.MAX_VALUE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addGap(0, 21, Short.MAX_VALUE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         SignUpPanelLayout.setVerticalGroup(
             SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,7 +312,7 @@ public class RegisterScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_ConditionsCheckBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void RegisterBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBackButtonActionPerformed
