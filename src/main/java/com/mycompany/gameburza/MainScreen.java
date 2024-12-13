@@ -51,11 +51,15 @@ public class MainScreen extends javax.swing.JFrame {
         // Horror Games
         GameBurza.games.add(new VideoGamePreviews("Resident Evil Village", 2021, "A survival horror game where players battle through a village terrorized by monsters.", "Steam"));
         GameBurza.games.add(new VideoGamePreviews("Dead Space (Remake)", 2023, "A sci-fi survival horror game where players fight necromorphs aboard a stranded spaceship.", "Steam"));
+        loadProductPaint();
+    }
+    
+    public void loadProductPaint(){
         for(int i = 0; i < GameBurza.games.size(); i++){
             itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title));
         }
     }
-    private static void initializeCredits() {
+    private void initializeCredits() {
     int[] availableDenominations = {10, 25, 20};
     
     // Adding Credit Items
@@ -65,11 +69,16 @@ public class MainScreen extends javax.swing.JFrame {
     GameBurza.credits.add(new CreditItem("Google Play Gift Card (Physical)", availableDenominations, "Google Play"));
     
     // Assuming you have a UI panel `itemsPanel2` to display the credit items
-    for (int i = 0; i < GameBurza.credits.size(); i++) {
+    drawCredits();
+}
+    
+    private void drawCredits(){
+        for (int i = 0; i < GameBurza.credits.size(); i++) {
         CreditItem credit = GameBurza.credits.get(i);
         // Display name, platform, and denominations in the items panel
+        itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).getName()));
     }
-}
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -297,7 +306,16 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_accountButtonMouseClicked
 
     private void gamesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gamesButtonActionPerformed
-           
+        if(gamesButton.isSelected() == true && (creditsButton.isSelected() == true || merchandiseButton.isSelected() == true)){
+            creditsButton.setSelected(false);
+            merchandiseButton.setSelected(false);
+        }
+        else{
+            gamesButton.setSelected(true);
+        }
+        itemsPanel2.removeAll();
+        loadProductPaint();  
+        validate();
     }//GEN-LAST:event_gamesButtonActionPerformed
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
@@ -306,7 +324,13 @@ public class MainScreen extends javax.swing.JFrame {
             merchandiseButton.setSelected(false);
         }
         itemsPanel2.removeAll();
-        itemsPanel2.repaint();
+        if(GameBurza.credits.size() == 0){
+            initializeCredits();
+        }
+        else{
+            drawCredits();
+        }
+        validate();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
     private void merchandiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_merchandiseButtonActionPerformed
@@ -317,15 +341,7 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_merchandiseButtonActionPerformed
 
     private void gamesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamesButtonMouseClicked
-        if(gamesButton.isSelected() == true && (creditsButton.isSelected() == true || merchandiseButton.isSelected() == true)){
-            creditsButton.setSelected(false);
-            merchandiseButton.setSelected(false);
-        }
-        else{
-            gamesButton.setSelected(true);
-        }
-        itemsPanel2.removeAll();
-        loadProducts();  
+        
     }//GEN-LAST:event_gamesButtonMouseClicked
 
     private void creditsButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsButtonMouseClicked
