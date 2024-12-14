@@ -80,6 +80,28 @@ public class MainScreen extends javax.swing.JFrame {
     }
     }
     
+    private void initializeMerchandise() {
+    // Adding Merch Items
+    GameBurza.merch.add(new MerchItem("Overwatch D.Va Hoodie", "Sizes S, M, L, XL"));
+    GameBurza.merch.add(new MerchItem("Assassin’s Creed Hidden Blade Replica Jacket", "Sizes S, M, L, XL"));
+    
+    // Adding Collectibles
+    GameBurza.merch.add(new MerchItem("Resident Evil Umbrella Corporation Logo Keychain", "Material: Metal, Size: 5cm diameter"));
+    GameBurza.merch.add(new MerchItem("Fallout Nuka-Cola Bottle Opener", "Material: Metal, Size: 10cm length"));
+
+    // Call the method to display the merchandise items
+    drawMerchandise();
+}
+    private void drawMerchandise() {
+    // Assuming you have a UI panel `itemsPanel2` to display the merchandise items
+    for (int i = 0; i < GameBurza.merch.size(); i++) {
+        MerchItem merch = GameBurza.merch.get(i);
+        // Display the merchandise name and other details in the items panel
+        itemsPanel2.add(new ItemPanel(GameBurza.merch.get(i).getName()));
+    }
+}
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -265,7 +287,7 @@ public class MainScreen extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 755, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -334,10 +356,24 @@ public class MainScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_creditsButtonActionPerformed
 
     private void merchandiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_merchandiseButtonActionPerformed
-        if(merchandiseButton.isSelected() == true && (gamesButton.isSelected() == true || creditsButton.isSelected() == true)){
-             gamesButton.setSelected(false);
-             creditsButton.setSelected(false);
-         }
+    // Ensure that if merchandise is selected, other buttons are deselected
+    if (merchandiseButton.isSelected() == true && (gamesButton.isSelected() == true || creditsButton.isSelected() == true)) {
+        gamesButton.setSelected(false);
+        creditsButton.setSelected(false);
+    }
+    
+    // Clear the items panel
+    itemsPanel2.removeAll();
+    
+    // Initialize merchandise if it's not already initialized
+    if (GameBurza.merch.size() == 0) {
+        initializeMerchandise();
+    } else {
+        drawMerchandise();
+    }
+    
+    // Revalidate and repaint the panel to ensure the changes are reflected
+    validate();
     }//GEN-LAST:event_merchandiseButtonActionPerformed
 
     private void gamesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamesButtonMouseClicked

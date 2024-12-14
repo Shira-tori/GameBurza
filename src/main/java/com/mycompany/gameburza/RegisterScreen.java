@@ -223,8 +223,8 @@ public class RegisterScreen extends javax.swing.JFrame {
                                         .addComponent(LastNameField)
                                         .addComponent(AgeField)
                                         .addComponent(jPasswordField1)))))
-                        .addGap(0, 21, Short.MAX_VALUE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addGap(0, 15, Short.MAX_VALUE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         SignUpPanelLayout.setVerticalGroup(
             SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
