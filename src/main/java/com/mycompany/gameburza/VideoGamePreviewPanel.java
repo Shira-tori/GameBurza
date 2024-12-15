@@ -10,6 +10,8 @@ package com.mycompany.gameburza;
  */
 public class VideoGamePreviewPanel extends javax.swing.JPanel {
 
+    public int index;
+    
     /**
      * Creates new form VideoGamePreviewPanel
      * @param title
@@ -20,7 +22,7 @@ public class VideoGamePreviewPanel extends javax.swing.JPanel {
      * @param descriptionParam
      * @param price
      */
-    public VideoGamePreviewPanel(String title, String picLoc, int releaseDateParam, String platforms, String genreParam, String descriptionParam, float priceParam) {
+    public VideoGamePreviewPanel(String title, String picLoc, int releaseDateParam, String platforms, String genreParam, String descriptionParam, float priceParam, int index) {
         initComponents();
         description.setText(descriptionParam);
         titleLabel.setText(title);
@@ -32,6 +34,8 @@ public class VideoGamePreviewPanel extends javax.swing.JPanel {
         price.setText("PHP" + String.valueOf(priceParam));
         genre.setText(genreParam);
         releaseDate.setText(String.valueOf(releaseDateParam));
+        titleLabel.setToolTipText(title);
+        this.index = index;
     }
 
     /**
@@ -61,9 +65,15 @@ public class VideoGamePreviewPanel extends javax.swing.JPanel {
         addToCartButton.setBackground(new java.awt.Color(0, 153, 0));
         addToCartButton.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         addToCartButton.setText("Add to Cart");
+        addToCartButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addToCartButtonActionPerformed(evt);
+            }
+        });
 
         titleLabel.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         titleLabel.setText("Title");
+        titleLabel.setToolTipText("");
 
         releaseDateLabel.setFont(new java.awt.Font("sansserif", 1, 13)); // NOI18N
         releaseDateLabel.setText("Release Date:");
@@ -153,6 +163,10 @@ public class VideoGamePreviewPanel extends javax.swing.JPanel {
                 .addComponent(addToCartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
+        GameBurza.cart.add(GameBurza.games.get(index));
+    }//GEN-LAST:event_addToCartButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

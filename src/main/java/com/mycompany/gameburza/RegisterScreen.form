@@ -39,8 +39,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="SignUpPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="SignUpPanel" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -76,7 +76,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="registerButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
@@ -97,15 +97,14 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="EmailLabel" min="-2" pref="116" max="-2" attributes="0"/>
                                           <Component id="AgeLabel" min="-2" pref="116" max="-2" attributes="0"/>
-                                          <Component id="FirstNameField" max="32767" attributes="0"/>
+                                          <Component id="FirstNameField" pref="455" max="32767" attributes="0"/>
                                           <Component id="FIrstNameLabel" min="-2" pref="116" max="-2" attributes="0"/>
                                           <Component id="FIrstNameLabel1" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                           <Component id="EmailField" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="AgeLabel1" max="32767" attributes="0"/>
                                           <Component id="PasswordLabel" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                           <Component id="LastNameField" alignment="0" max="32767" attributes="0"/>
                                           <Component id="AgeField" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jPasswordField1" max="32767" attributes="0"/>
+                                          <Component id="passwordField" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -148,30 +147,28 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="FirstNameField" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="FIrstNameLabel1" max="32767" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="FIrstNameLabel1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="LastNameField" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace pref="38" max="32767" attributes="0"/>
                   <Component id="AgeLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="AgeField" min="-2" pref="46" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="AgeLabel1" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="EmailLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="EmailField" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="PasswordLabel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jPasswordField1" min="-2" pref="46" max="-2" attributes="0"/>
+                  <Component id="passwordField" min="-2" pref="46" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="ConditionsCheckBox" min="-2" max="-2" attributes="0"/>
                       <Component id="AgreementSignUp" min="-2" pref="51" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <Component id="registerButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -206,7 +203,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="GAmeburzA"/>
+            <Property name="text" type="java.lang.String" value="GameBurza"/>
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
             <Property name="verticalTextPosition" type="int" value="1"/>
           </Properties>
@@ -283,22 +280,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmailFieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="AgeLabel1">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Monospaced" size="12" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;div style=&apos;text-align:center;&apos;&gt;**Please note that buyers below legal age will be asked for their &lt;br&gt;&#xa;parent&apos;s consent.**&lt;/div&gt;&lt;/html&gt;"/>
-            <Property name="toolTipText" type="java.lang.String" value=""/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="EmailLabel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -373,7 +354,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="registerButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Nebula" size="12" style="0"/>
@@ -382,13 +363,13 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerButtonActionPerformed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="if(!ConditionsCheckBox.isSelected()){&#xa;    jButton1.setEnabled(false);&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="if(!ConditionsCheckBox.isSelected()){&#xa;    registerButton.setEnabled(false);&#xa;}"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+        <Component class="javax.swing.JPasswordField" name="passwordField">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="99" red="ff" type="rgb"/>

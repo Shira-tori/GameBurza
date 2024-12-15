@@ -3,6 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.gameburza;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -37,15 +48,14 @@ public class RegisterScreen extends javax.swing.JFrame {
         FIrstNameLabel1 = new javax.swing.JLabel();
         AgeLabel = new javax.swing.JLabel();
         EmailField = new javax.swing.JTextField();
-        AgeLabel1 = new javax.swing.JLabel();
         EmailLabel = new javax.swing.JLabel();
         PasswordLabel = new javax.swing.JLabel();
         ConditionsCheckBox = new javax.swing.JCheckBox();
         LastNameField = new javax.swing.JTextField();
         AgeField = new javax.swing.JTextField();
         AgreementSignUp = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        registerButton = new javax.swing.JButton();
+        passwordField = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         RegisterBackButton = new javax.swing.JToggleButton();
 
@@ -72,7 +82,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         BrandName.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
         BrandName.setForeground(new java.awt.Color(255, 255, 255));
         BrandName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        BrandName.setText("GAmeburzA");
+        BrandName.setText("GameBurza");
         BrandName.setVerifyInputWhenFocusTarget(false);
         BrandName.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
@@ -106,13 +116,6 @@ public class RegisterScreen extends javax.swing.JFrame {
                 EmailFieldActionPerformed(evt);
             }
         });
-
-        AgeLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        AgeLabel1.setFont(new java.awt.Font("Monospaced", 1, 12)); // NOI18N
-        AgeLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        AgeLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        AgeLabel1.setText("<html><div style='text-align:center;'>**Please note that buyers below legal age will be asked for their <br>\nparent's consent.**</div></html>");
-        AgeLabel1.setToolTipText("");
 
         EmailLabel.setBackground(new java.awt.Color(255, 255, 255));
         EmailLabel.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
@@ -154,16 +157,16 @@ public class RegisterScreen extends javax.swing.JFrame {
         AgreementSignUp.setText("<html>By clicking on this checkbox, you agree to the <br>\n terms and conditions provided by the company.</html>");
         AgreementSignUp.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jButton1.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
-        jButton1.setText("REGISTER");
-        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        registerButton.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        registerButton.setText("REGISTER");
+        registerButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                registerButtonActionPerformed(evt);
             }
         });
 
-        jPasswordField1.setBackground(new java.awt.Color(255, 153, 153));
+        passwordField.setBackground(new java.awt.Color(255, 153, 153));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gameburza50x50_1.png"))); // NOI18N
 
@@ -197,7 +200,7 @@ public class RegisterScreen extends javax.swing.JFrame {
                                 .addComponent(AgreementSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(SignUpPanelLayout.createSequentialGroup()
                                 .addGap(195, 195, 195)
-                                .addComponent(jButton1))
+                                .addComponent(registerButton))
                             .addGroup(SignUpPanelLayout.createSequentialGroup()
                                 .addGap(17, 17, 17)
                                 .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,15 +217,14 @@ public class RegisterScreen extends javax.swing.JFrame {
                                     .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(FirstNameField)
+                                        .addComponent(FirstNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
                                         .addComponent(FIrstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(EmailField)
-                                        .addComponent(AgeLabel1)
                                         .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(LastNameField)
                                         .addComponent(AgeField)
-                                        .addComponent(jPasswordField1)))))
+                                        .addComponent(passwordField)))))
                         .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -251,34 +253,32 @@ public class RegisterScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(FirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(LastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(AgeLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(AgeLabel1)
-                .addGap(15, 15, 15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(EmailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(EmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ConditionsCheckBox)
                     .addComponent(AgreementSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(registerButton)
                 .addGap(22, 22, 22))
         );
 
         if(!ConditionsCheckBox.isSelected()){
-            jButton1.setEnabled(false);
+            registerButton.setEnabled(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -290,7 +290,7 @@ public class RegisterScreen extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(SignUpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SignUpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
 
@@ -317,15 +317,33 @@ public class RegisterScreen extends javax.swing.JFrame {
 
     private void ConditionsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConditionsCheckBoxActionPerformed
         if(ConditionsCheckBox.isSelected()){
-            jButton1.setEnabled(true);
+            registerButton.setEnabled(true);
             return;
         }
-        jButton1.setEnabled(false);
+        registerButton.setEnabled(false);
     }//GEN-LAST:event_ConditionsCheckBoxActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
+        File file = new File("src/main/resources/credentials.txt");
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if(file.exists()){
+            try {
+                FileWriter filewriter = new FileWriter(file.getPath(), true);
+                String line = String.format("%s,%s,%s,%s,%s", EmailField.getText(), new String(passwordField.getPassword()), FirstNameField.getText(), LastNameField.getText(), AgeField.getText());
+                filewriter.write(line);
+                filewriter.close();
+                JOptionPane.showMessageDialog(rootPane, "Successfully Registered, Login");
+                dispose();
+                GameBurza.loginScreen.setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(RegisterScreen.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return;
+        }
+        JOptionPane.showMessageDialog(rootPane, "Couldn't find credential file", "Error", JOptionPane.ERROR_MESSAGE);
+        
+        
+    }//GEN-LAST:event_registerButtonActionPerformed
 
     private void RegisterBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBackButtonActionPerformed
         dispose();
@@ -370,7 +388,6 @@ public class RegisterScreen extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AgeField;
     private javax.swing.JLabel AgeLabel;
-    private javax.swing.JLabel AgeLabel1;
     private javax.swing.JLabel AgreementSignUp;
     private javax.swing.JLabel BrandName;
     private javax.swing.JCheckBox ConditionsCheckBox;
@@ -384,9 +401,9 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JLabel PasswordLabel;
     private javax.swing.JToggleButton RegisterBackButton;
     private javax.swing.JPanel SignUpPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton registerButton;
     // End of variables declaration//GEN-END:variables
 }

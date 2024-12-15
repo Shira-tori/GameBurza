@@ -27,10 +27,10 @@ public class MainScreen extends javax.swing.JFrame {
     
     private void drawCredits(){
         for (int i = 0; i < GameBurza.credits.size(); i++) {
-        CreditsModel credit = GameBurza.credits.get(i);
-        // Display name, platform, and denominations in the items panel
-        //itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, GameBurza.credits.get(i).price));
-    }
+            CreditsModel credit = GameBurza.credits.get(i);
+            // Display name, platform, and denominations in the items panel
+            //itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, GameBurza.credits.get(i).price));
+        }
     }
     
     private void initializeMerchandise() {
@@ -348,7 +348,7 @@ public class MainScreen extends javax.swing.JFrame {
         String iconLoc = GameBurza.games.get(i).iconLoc;
         float price = GameBurza.games.get(i).price;
         previewPanelMainScreen.removeAll();
-        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price));
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price, i));
         validate();
     }
     

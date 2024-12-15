@@ -4,6 +4,14 @@
  */
 package com.mycompany.gameburza;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sean
@@ -187,10 +195,31 @@ public class LoginScreen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
-        dispose();
-        GameBurza.mainScreen.setVisible(true);
-        GameBurza.mainScreen.loadProductPaint();
+        try {
+            // TODO add your handling code here:
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/credentials.txt"));
+            String line;
+            while((line = reader.readLine()) != null){
+                
+                String[] credentials = line.split(",");
+                System.out.println(credentials[0]);
+                System.out.println(credentials[1]);
+                System.out.println(passwordField.getPassword());                
+                if(credentials[0].equals(emailTextField.getText()) && credentials[1].equals(new String(passwordField.getPassword()))){
+                    dispose();
+                    GameBurza.mainScreen.setVisible(true);
+                    GameBurza.mainScreen.loadProductPaint();  
+                    return;
+                }
+            }
+            JOptionPane.showMessageDialog(rootPane, "Login Failed", "Login Failed", JOptionPane.ERROR_MESSAGE);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        } catch (IOException ex) {
+            Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed
@@ -198,7 +227,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_emailTextFieldActionPerformed
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
-        dispose();
+        setVisible(false);
         GameBurza.registerScreen.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
 

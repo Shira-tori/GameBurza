@@ -11,7 +11,7 @@ import java.util.List;
  * @author sean
  */
 public class GameBurza {
-    public static List<?> cart = new ArrayList<>();
+    public static List<Object> cart = new ArrayList<>();
     public static List<VideoGameModel> games = new ArrayList<>();
     public static List<CreditsModel> credits = new ArrayList<>();
     public static List<MerchItem> merch = new ArrayList<>();

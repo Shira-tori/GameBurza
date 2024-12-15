@@ -32,6 +32,8 @@ public class CartUI extends javax.swing.JFrame {
         TotalCartLabel = new javax.swing.JLabel();
         TotalCartLabel1 = new javax.swing.JLabel();
         CheckOutButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         CartUpperUiPanel = new javax.swing.JPanel();
         CartLabel = new javax.swing.JLabel();
         ItemsLabel = new javax.swing.JLabel();
@@ -93,19 +95,36 @@ public class CartUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setFillsViewportHeight(true);
+        jTable1.setShowGrid(false);
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout CartUIPanelLayout = new javax.swing.GroupLayout(CartUIPanel);
         CartUIPanel.setLayout(CartUIPanelLayout);
         CartUIPanelLayout.setHorizontalGroup(
             CartUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CartUIPanelLayout.createSequentialGroup()
+            .addGroup(CartUIPanelLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(CartLowerUIPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addGroup(CartUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CartLowerUIPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)))
         );
         CartUIPanelLayout.setVerticalGroup(
             CartUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CartUIPanelLayout.createSequentialGroup()
-                .addContainerGap(502, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(CartLowerUIPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -255,5 +274,7 @@ public class CartUI extends javax.swing.JFrame {
     private javax.swing.JLabel TotalCartLabel;
     private javax.swing.JLabel TotalCartLabel1;
     private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
