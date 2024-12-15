@@ -11,6 +11,7 @@ package com.mycompany.gameburza;
 public class ProductModel {
     public String title;
     public String description;
+    public String iconLoc;
     public int releaseDate;
     public float price;
 }

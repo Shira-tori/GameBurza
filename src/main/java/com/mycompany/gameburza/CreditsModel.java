@@ -8,17 +8,18 @@ package com.mycompany.gameburza;
  *
  * @author DDD
  */
-public class VideoGameModel extends ProductModel{
+public class CreditsModel extends ProductModel{
     public String platforms;
-    public String genre;
+    public int[] availableDenominations;
     
-    public VideoGameModel(String title, int releaseDate, String description,  String platforms, String genre, float price, String iconLoc){
+    
+    public CreditsModel(String title, int[] availableDenominations, int releaseDate, String description,  String platforms, float price){
         this.title = title;
         this.description = description;
         this.releaseDate = releaseDate;
         this.platforms = platforms;
-        this.genre = genre;
         this.price = price;
-        this.iconLoc = iconLoc;
+        this.availableDenominations = availableDenominations;
     }
 }
+    

@@ -18,65 +18,18 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void loadProducts(){
-        
-                    // Action Games
-        GameBurza.games.add(new VideoGamePreviews("Grand Theft Auto V", 2013, "An open-world action-adventure game with heist missions.", "PS5, Xbox, Steam"));
-        GameBurza.games.add(new VideoGamePreviews("DOOM Eternal", 2020, "A fast-paced first-person shooter battling demonic forces.", "PS5, Xbox, Steam"));
-
-        // Adventure Games
-        GameBurza.games.add(new VideoGamePreviews("The Legend of Zelda: Breath of the Wild", 2017, "An open-world action-adventure game in a vast, post-apocalyptic Hyrule.", "Nintendo eShop"));
-        GameBurza.games.add(new VideoGamePreviews("Life is Strange", 2015, "A graphic adventure game that follows a young girl with time-manipulation powers.", "Steam"));
-
-        // RPG Games
-        GameBurza.games.add(new VideoGamePreviews("The Witcher 3: Wild Hunt", 2015, "An open-world RPG where Geralt of Rivia battles monsters and searches for his adopted daughter.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("Cyberpunk 2077", 2020, "An open-world RPG set in a dystopian future, featuring advanced technology and cybernetics.", "Steam"));
-
-        // Simulation Games
-        GameBurza.games.add(new VideoGamePreviews("The Sims 4", 2014, "A life simulation game where players create and control people in a virtual world.", "PS4, Xbox, Steam, Origin"));
-        GameBurza.games.add(new VideoGamePreviews("Animal Crossing: New Horizons", 2020, "A social simulation game where players develop a deserted island and interact with animal villagers.", "Nintendo eShop"));
-
-        // Strategy Games
-        GameBurza.games.add(new VideoGamePreviews("Civilization VI", 2016, "A turn-based strategy game where players build and manage an empire through the ages.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("XCOM 2", 2016, "A turn-based tactics game where players lead resistance forces against an alien occupation.", "Steam"));
-
-        // Sports Games
-        GameBurza.games.add(new VideoGamePreviews("FIFA 24", 2023, "A football simulation game featuring real teams and leagues.", "Origin"));
-        GameBurza.games.add(new VideoGamePreviews("NBA 2K24", 2023, "A basketball simulation game featuring NBA teams and players.", "Steam"));
-
-        // Puzzle Games
-        GameBurza.games.add(new VideoGamePreviews("Tetris Effect", 2018, "A puzzle game that combines classic Tetris gameplay with music and visual effects.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("Portal 2", 2011, "A first-person puzzle-platform game where players solve puzzles using a portal gun.", "Steam"));
-
-        // Horror Games
-        GameBurza.games.add(new VideoGamePreviews("Resident Evil Village", 2021, "A survival horror game where players battle through a village terrorized by monsters.", "Steam"));
-        GameBurza.games.add(new VideoGamePreviews("Dead Space (Remake)", 2023, "A sci-fi survival horror game where players fight necromorphs aboard a stranded spaceship.", "Steam"));
-        loadProductPaint();
-    }
-    
     public void loadProductPaint(){
         for(int i = 0; i < GameBurza.games.size(); i++){
-            itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title));
+            itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title, GameBurza.games.get(i).price, GameBurza.games.get(i).iconLoc));
         }
     }
-    private void initializeCredits() {
-    int[] availableDenominations = {10, 25, 20};
     
-    // Adding Credit Items
-    GameBurza.credits.add(new CreditItem("PlayStation Network (PSN) Wallet Top-up", availableDenominations, "PSN"));
-    GameBurza.credits.add(new CreditItem("Steam Wallet Gift Card (Digital Code)", availableDenominations, "Steam"));
-    GameBurza.credits.add(new CreditItem("Garena Shells Scratch Card", availableDenominations, "Garena"));
-    GameBurza.credits.add(new CreditItem("Google Play Gift Card (Physical)", availableDenominations, "Google Play"));
-    
-    // Assuming you have a UI panel `itemsPanel2` to display the credit items
-    drawCredits();
-}
     
     private void drawCredits(){
         for (int i = 0; i < GameBurza.credits.size(); i++) {
-        CreditItem credit = GameBurza.credits.get(i);
+        CreditsModel credit = GameBurza.credits.get(i);
         // Display name, platform, and denominations in the items panel
-        itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).getName()));
+        //itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, GameBurza.credits.get(i).price));
     }
     }
     
@@ -97,7 +50,7 @@ public class MainScreen extends javax.swing.JFrame {
     for (int i = 0; i < GameBurza.merch.size(); i++) {
         MerchItem merch = GameBurza.merch.get(i);
         // Display the merchandise name and other details in the items panel
-        itemsPanel2.add(new ItemPanel(GameBurza.merch.get(i).getName()));
+        //itemsPanel2.add(new ItemPanel(GameBurza.merch.get(i).getName()));
     }
 }
 
@@ -150,6 +103,7 @@ public class MainScreen extends javax.swing.JFrame {
         cartButton.setForeground(new java.awt.Color(255, 255, 255));
         cartButton.setText("Cart");
         cartButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        cartButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cartButton.setIconTextGap(0);
         cartButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         cartButton.setPreferredSize(new java.awt.Dimension(50, 50));
@@ -164,6 +118,7 @@ public class MainScreen extends javax.swing.JFrame {
         accountButton.setForeground(new java.awt.Color(255, 255, 255));
         accountButton.setText("Account");
         accountButton.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        accountButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         accountButton.setIconTextGap(0);
         accountButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         accountButton.setPreferredSize(new java.awt.Dimension(50, 50));
@@ -181,9 +136,11 @@ public class MainScreen extends javax.swing.JFrame {
         gamesButton.setBackground(new java.awt.Color(184, 30, 38));
         gamesButton.setFont(new java.awt.Font("Nebula", 0, 14)); // NOI18N
         gamesButton.setForeground(new java.awt.Color(255, 255, 255));
+        gamesButton.setSelected(true);
         gamesButton.setText("GAMES");
         gamesButton.setBorder(null);
         gamesButton.setBorderPainted(false);
+        gamesButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         gamesButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         gamesButton.setPreferredSize(new java.awt.Dimension(50, 50));
         gamesButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -202,6 +159,7 @@ public class MainScreen extends javax.swing.JFrame {
         creditsButton.setForeground(new java.awt.Color(255, 255, 255));
         creditsButton.setText("CREDITS");
         creditsButton.setBorder(null);
+        creditsButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         creditsButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         creditsButton.setPreferredSize(new java.awt.Dimension(50, 50));
         creditsButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,6 +178,7 @@ public class MainScreen extends javax.swing.JFrame {
         merchandiseButton.setForeground(new java.awt.Color(255, 255, 255));
         merchandiseButton.setText("MERCH");
         merchandiseButton.setBorder(null);
+        merchandiseButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         merchandiseButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         merchandiseButton.setPreferredSize(new java.awt.Dimension(50, 50));
         merchandiseButton.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -266,7 +225,6 @@ public class MainScreen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        gamesButton.setSelected(true);
         if (gamesButton.isSelected() == true){
             gamesButton.setSelected(false);
         }
@@ -305,11 +263,11 @@ public class MainScreen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -345,13 +303,11 @@ public class MainScreen extends javax.swing.JFrame {
             gamesButton.setSelected(false);
             merchandiseButton.setSelected(false);
         }
-        itemsPanel2.removeAll();
-        if(GameBurza.credits.size() == 0){
-            initializeCredits();
-        }
         else{
-            drawCredits();
+            creditsButton.setSelected(true);
         }
+        itemsPanel2.removeAll();
+        drawCredits();
         validate();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
@@ -360,6 +316,9 @@ public class MainScreen extends javax.swing.JFrame {
     if (merchandiseButton.isSelected() == true && (gamesButton.isSelected() == true || creditsButton.isSelected() == true)) {
         gamesButton.setSelected(false);
         creditsButton.setSelected(false);
+    }
+    else{
+        merchandiseButton.setSelected(true);
     }
     
     // Clear the items panel

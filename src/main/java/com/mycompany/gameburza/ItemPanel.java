@@ -12,10 +12,18 @@ public class ItemPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ItemPanel
+     * @param title
+     * @param price
      */
-    public ItemPanel(String title) {
+    public ItemPanel(String title, float price, String picLoc) {
         initComponents();
         titleLabel.setText(title);
+        ItemPricelabel.setText("PHP " + String.valueOf(price));
+        javax.swing.ImageIcon image = new javax.swing.ImageIcon(getClass().getResource(picLoc));
+        java.awt.Image awtImage = image.getImage();
+        java.awt.Image modifiedImage= awtImage.getScaledInstance(150, 185, java.awt.Image.SCALE_SMOOTH);
+        itemPicLabel.setIcon(new javax.swing.ImageIcon(modifiedImage));
+        
     }
 
     /**
@@ -27,11 +35,13 @@ public class ItemPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        ItemPricePanel = new javax.swing.JLabel();
+        clickArea = new javax.swing.JPanel();
+        itemPicLabel = new javax.swing.JLabel();
+        ItemPricelabel = new javax.swing.JLabel();
         titleLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 153, 153));
+        setMaximumSize(new java.awt.Dimension(200, 300));
         setPreferredSize(new java.awt.Dimension(200, 300));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -44,68 +54,80 @@ public class ItemPanel extends javax.swing.JPanel {
                 formMouseExited(evt);
             }
         });
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GTAVlogo (2).png"))); // NOI18N
-        jLabel1.setToolTipText("");
-
-        ItemPricePanel.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
-        ItemPricePanel.setText("Price");
-        ItemPricePanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ItemPricePanelMouseClicked(evt);
+        clickArea.setOpaque(false);
+        clickArea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                clickAreaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                clickAreaMouseExited(evt);
             }
         });
 
+        javax.swing.GroupLayout clickAreaLayout = new javax.swing.GroupLayout(clickArea);
+        clickArea.setLayout(clickAreaLayout);
+        clickAreaLayout.setHorizontalGroup(
+            clickAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+        clickAreaLayout.setVerticalGroup(
+            clickAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 330, Short.MAX_VALUE)
+        );
+
+        add(clickArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 330));
+
+        itemPicLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        itemPicLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/GTAVlogo (2)_1.png"))); // NOI18N
+        itemPicLabel.setToolTipText("");
+        add(itemPicLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 34, 188, 209));
+
+        ItemPricelabel.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        ItemPricelabel.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        ItemPricelabel.setText("Price");
+        ItemPricelabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ItemPricelabelMouseClicked(evt);
+            }
+        });
+        add(ItemPricelabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 261, 179, 20));
+
         titleLabel.setFont(new java.awt.Font("Nebula", 1, 18)); // NOI18N
         titleLabel.setText("jLabel1");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ItemPricePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titleLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ItemPricePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        add(titleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 188, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
         System.out.println(this.titleLabel.getText());
     }//GEN-LAST:event_formMouseClicked
 
-    private void ItemPricePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemPricePanelMouseClicked
+    private void ItemPricelabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemPricelabelMouseClicked
 
-    }//GEN-LAST:event_ItemPricePanelMouseClicked
+    }//GEN-LAST:event_ItemPricelabelMouseClicked
 
     private void formMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseEntered
-        this.setBackground(new java.awt.Color(255,119,119));
+        
     }//GEN-LAST:event_formMouseEntered
 
     private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-        this.setBackground(new java.awt.Color(255,153,153));
+        
     }//GEN-LAST:event_formMouseExited
+
+    private void clickAreaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickAreaMouseEntered
+        this.setBackground(new java.awt.Color(255,119,119));
+    }//GEN-LAST:event_clickAreaMouseEntered
+
+    private void clickAreaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickAreaMouseExited
+        this.setBackground(new java.awt.Color(255,153,153));
+    }//GEN-LAST:event_clickAreaMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ItemPricePanel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel ItemPricelabel;
+    private javax.swing.JPanel clickArea;
+    private javax.swing.JLabel itemPicLabel;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

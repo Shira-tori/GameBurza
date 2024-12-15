@@ -190,7 +190,7 @@ public class LoginScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
         GameBurza.mainScreen.setVisible(true);
-        GameBurza.mainScreen.loadProducts();
+        GameBurza.mainScreen.loadProductPaint();
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void emailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailTextFieldActionPerformed

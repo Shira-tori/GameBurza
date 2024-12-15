@@ -201,11 +201,11 @@ public class CartUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CheckOutButtonActionPerformed
 
     private void EditCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditCartButtonActionPerformed
-        GenerateReceipt.main(new String[]{});        // TODO add your handling code here:
+      // TODO add your handling code here:
     }//GEN-LAST:event_EditCartButtonActionPerformed
 
     private void CartUIHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CartUIHomeButtonActionPerformed
-        MainScreen.main(new String[]{});        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_CartUIHomeButtonActionPerformed
 
     /**
