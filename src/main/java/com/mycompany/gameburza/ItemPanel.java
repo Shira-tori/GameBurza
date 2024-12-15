@@ -4,6 +4,8 @@
  */
 package com.mycompany.gameburza;
 
+import java.awt.Color;
+
 /**
  *
  * @author sean
@@ -15,8 +17,18 @@ public class ItemPanel extends javax.swing.JPanel {
      * @param title
      * @param price
      */
-    public ItemPanel(String title, float price, String picLoc) {
+    
+    private String title;
+    private float price;
+    private String picLoc;
+    private int index;
+    
+    public ItemPanel(String title, float price, String picLoc, int index) {
         initComponents();
+        this.index = index;
+        this.title = title;
+        this.price = price;
+        this.picLoc = picLoc;
         titleLabel.setText(title);
         ItemPricelabel.setText("PHP " + String.valueOf(price));
         javax.swing.ImageIcon image = new javax.swing.ImageIcon(getClass().getResource(picLoc));
@@ -58,6 +70,9 @@ public class ItemPanel extends javax.swing.JPanel {
 
         clickArea.setOpaque(false);
         clickArea.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clickAreaMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 clickAreaMouseEntered(evt);
             }
@@ -122,6 +137,11 @@ public class ItemPanel extends javax.swing.JPanel {
     private void clickAreaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickAreaMouseExited
         this.setBackground(new java.awt.Color(255,153,153));
     }//GEN-LAST:event_clickAreaMouseExited
+
+    private void clickAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickAreaMouseClicked
+        GameBurza.mainScreen.addPreviewPanel(index);
+        System.out.println(this.title + this.picLoc + this.price);
+    }//GEN-LAST:event_clickAreaMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

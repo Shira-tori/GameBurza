@@ -20,7 +20,7 @@ public class MainScreen extends javax.swing.JFrame {
     
     public void loadProductPaint(){
         for(int i = 0; i < GameBurza.games.size(); i++){
-            itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title, GameBurza.games.get(i).price, GameBurza.games.get(i).iconLoc));
+            itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title, GameBurza.games.get(i).price, GameBurza.games.get(i).iconLoc, i));
         }
     }
     
@@ -76,7 +76,7 @@ public class MainScreen extends javax.swing.JFrame {
         merchandiseButton = new javax.swing.JToggleButton();
         scrollPane = new javax.swing.JScrollPane();
         itemsPanel2 = new com.mycompany.gameburza.ItemsPanel();
-        jPanel1 = new javax.swing.JPanel();
+        previewPanelMainScreen = new javax.swing.JPanel();
 
         jPopupMenu2.setPopupSize(new java.awt.Dimension(200, 100));
 
@@ -89,7 +89,7 @@ public class MainScreen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GameBurza");
         setResizable(false);
-        setSize(new java.awt.Dimension(1000, 700));
+        setSize(new java.awt.Dimension(224, 845));
 
         topMenuPanel.setBackground(new java.awt.Color(184, 30, 38));
 
@@ -198,7 +198,7 @@ public class MainScreen extends javax.swing.JFrame {
             topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topMenuPanelLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)
+                .addComponent(gameburzaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gamesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -209,14 +209,14 @@ public class MainScreen extends javax.swing.JFrame {
                 .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(accountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         topMenuPanelLayout.setVerticalGroup(
             topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topMenuPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(topMenuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(gameburzaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gameburzaLabel)
                     .addComponent(cartButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accountButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(gamesButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,37 +237,29 @@ public class MainScreen extends javax.swing.JFrame {
         scrollPane.setViewportView(itemsPanel2);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 349, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 755, Short.MAX_VALUE)
-        );
+        previewPanelMainScreen.setLayout(new java.awt.BorderLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
+                .addContainerGap()
+                .addComponent(previewPanelMainScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 755, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, 0))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(previewPanelMainScreen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -347,7 +339,19 @@ public class MainScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_merchandiseButtonMouseClicked
  
-  
+    public void addPreviewPanel(int i){
+        String title = GameBurza.games.get(i).title;
+        String description = GameBurza.games.get(i).description;
+        int releaseDate = GameBurza.games.get(i).releaseDate;
+        String platform = GameBurza.games.get(i).platforms;
+        String genre = GameBurza.games.get(i).genre;
+        String iconLoc = GameBurza.games.get(i).iconLoc;
+        float price = GameBurza.games.get(i).price;
+        previewPanelMainScreen.removeAll();
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price));
+        validate();
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -393,9 +397,9 @@ public class MainScreen extends javax.swing.JFrame {
     private com.mycompany.gameburza.ItemsPanel itemsPanel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JToggleButton merchandiseButton;
+    public javax.swing.JPanel previewPanelMainScreen;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JPanel topMenuPanel;
     // End of variables declaration//GEN-END:variables
