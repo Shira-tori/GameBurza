@@ -4,6 +4,8 @@
  */
 package com.mycompany.gameburza;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sean
@@ -38,16 +40,20 @@ public class RegisterScreen extends javax.swing.JFrame {
         AgeLabel1 = new javax.swing.JLabel();
         EmailLabel = new javax.swing.JLabel();
         PasswordLabel = new javax.swing.JLabel();
-        PasswordField = new javax.swing.JTextField();
         ConditionsCheckBox = new javax.swing.JCheckBox();
         LastNameField = new javax.swing.JTextField();
         AgeField = new javax.swing.JTextField();
         AgreementSignUp = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        RegisterBackButton = new javax.swing.JToggleButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 51));
-        setPreferredSize(new java.awt.Dimension(515, 700));
+        setPreferredSize(new java.awt.Dimension(515, 740));
+        setResizable(false);
+        setSize(new java.awt.Dimension(515, 730));
 
         SignUpPanel.setBackground(new java.awt.Color(184, 30, 38));
         SignUpPanel.setPreferredSize(new java.awt.Dimension(515, 700));
@@ -61,10 +67,9 @@ public class RegisterScreen extends javax.swing.JFrame {
         });
 
         GameBurzaLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        GameBurzaLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jhan Steven Cruz\\Downloads\\gameburza50x50.png")); // NOI18N
         GameBurzaLogo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        BrandName.setFont(new java.awt.Font("Nebula", 0, 12)); // NOI18N
+        BrandName.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
         BrandName.setForeground(new java.awt.Color(255, 255, 255));
         BrandName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         BrandName.setText("GAmeburzA");
@@ -120,14 +125,6 @@ public class RegisterScreen extends javax.swing.JFrame {
         PasswordLabel.setText("PASSWORD");
         PasswordLabel.setToolTipText("");
 
-        PasswordField.setBackground(new java.awt.Color(255, 153, 153));
-        PasswordField.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        PasswordField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PasswordFieldActionPerformed(evt);
-            }
-        });
-
         ConditionsCheckBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConditionsCheckBoxActionPerformed(evt);
@@ -166,64 +163,95 @@ public class RegisterScreen extends javax.swing.JFrame {
             }
         });
 
+        jPasswordField1.setBackground(new java.awt.Color(255, 153, 153));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gameburza50x50_1.png"))); // NOI18N
+
+        RegisterBackButton.setBackground(new java.awt.Color(184, 30, 38));
+        RegisterBackButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
+        RegisterBackButton.setForeground(new java.awt.Color(204, 204, 0));
+        RegisterBackButton.setText("<---");
+        RegisterBackButton.setBorderPainted(false);
+        RegisterBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterBackButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SignUpPanelLayout = new javax.swing.GroupLayout(SignUpPanel);
         SignUpPanel.setLayout(SignUpPanelLayout);
         SignUpPanelLayout.setHorizontalGroup(
             SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(230, 230, 230))
             .addGroup(SignUpPanelLayout.createSequentialGroup()
                 .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SignUpPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FirstNameField)
-                            .addComponent(FIrstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(EmailField)
-                            .addComponent(AgeLabel1)
-                            .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PasswordField)
-                            .addComponent(LastNameField)
-                            .addComponent(AgeField)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(216, 216, 216))
                     .addGroup(SignUpPanelLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(ConditionsCheckBox)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(AgreementSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SignUpPanelLayout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jButton1))
-                    .addGroup(SignUpPanelLayout.createSequentialGroup()
-                        .addGap(170, 170, 170)
-                        .addComponent(GameBurzaLogo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BrandName, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SignUpPanelLayout.createSequentialGroup()
+                                .addGap(66, 66, 66)
+                                .addComponent(ConditionsCheckBox)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(AgreementSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SignUpPanelLayout.createSequentialGroup()
+                                .addGap(195, 195, 195)
+                                .addComponent(jButton1))
+                            .addGroup(SignUpPanelLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(SignUpPanelLayout.createSequentialGroup()
+                                        .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(SignUpPanelLayout.createSequentialGroup()
+                                                .addGap(147, 147, 147)
+                                                .addComponent(GameBurzaLogo))
+                                            .addComponent(RegisterBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(BrandName))
+                                    .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(AgeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(FirstNameField)
+                                        .addComponent(FIrstNameLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(EmailField)
+                                        .addComponent(AgeLabel1)
+                                        .addComponent(PasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(LastNameField)
+                                        .addComponent(AgeField)
+                                        .addComponent(jPasswordField1)))))
+                        .addGap(0, 21, Short.MAX_VALUE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         SignUpPanelLayout.setVerticalGroup(
             SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SignUpPanelLayout.createSequentialGroup()
                 .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SignUpPanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SignUpPanelLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jLabel2))
+                            .addGroup(SignUpPanelLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(RegisterBackButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(GameBurzaLogo)
-                        .addGap(18, 18, 18))
+                        .addGap(12, 12, 12))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SignUpPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(BrandName)
-                        .addGap(36, 36, 36)))
+                        .addGap(34, 34, 34)))
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FIrstNameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(FirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 20, Short.MAX_VALUE)
+                .addComponent(FIrstNameLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(LastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
@@ -231,7 +259,7 @@ public class RegisterScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AgeField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(AgeLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                .addComponent(AgeLabel1)
                 .addGap(15, 15, 15)
                 .addComponent(EmailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -239,7 +267,7 @@ public class RegisterScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(SignUpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ConditionsCheckBox)
@@ -249,49 +277,60 @@ public class RegisterScreen extends javax.swing.JFrame {
                 .addGap(22, 22, 22))
         );
 
+        if(!ConditionsCheckBox.isSelected()){
+            jButton1.setEnabled(false);
+        }
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(SignUpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
+            .addComponent(SignUpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(SignUpPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 715, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(SignUpPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void FirstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNameFieldActionPerformed
-        // TODO add your handling code here:
+        System.out.println(FirstNameField.getText());
     }//GEN-LAST:event_FirstNameFieldActionPerformed
 
     private void EmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailFieldActionPerformed
 
-    private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PasswordFieldActionPerformed
-
     private void LastNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LastNameFieldActionPerformed
 
     private void AgeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgeFieldActionPerformed
-        // TODO add your handling code here:
+        if(Integer.parseInt(AgeField.getText() ) < 18){
+            JOptionPane.showMessageDialog(rootPane, "BAWAL ANG BATA DITO!");
+        }
     }//GEN-LAST:event_AgeFieldActionPerformed
 
     private void ConditionsCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConditionsCheckBoxActionPerformed
-        // TODO add your handling code here:
+        if(ConditionsCheckBox.isSelected()){
+            jButton1.setEnabled(true);
+            return;
+        }
+        jButton1.setEnabled(false);
     }//GEN-LAST:event_ConditionsCheckBoxActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void RegisterBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterBackButtonActionPerformed
+        dispose();
+        GameBurza.loginScreen.setVisible(true);
+    }//GEN-LAST:event_RegisterBackButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,10 +381,12 @@ public class RegisterScreen extends javax.swing.JFrame {
     private javax.swing.JTextField FirstNameField;
     private javax.swing.JLabel GameBurzaLogo;
     private javax.swing.JTextField LastNameField;
-    private javax.swing.JTextField PasswordField;
     private javax.swing.JLabel PasswordLabel;
+    private javax.swing.JToggleButton RegisterBackButton;
     private javax.swing.JPanel SignUpPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField jPasswordField1;
     // End of variables declaration//GEN-END:variables
 }
