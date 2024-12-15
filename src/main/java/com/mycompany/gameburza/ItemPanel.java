@@ -68,6 +68,7 @@ public class ItemPanel extends javax.swing.JPanel {
         });
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        clickArea.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         clickArea.setOpaque(false);
         clickArea.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
