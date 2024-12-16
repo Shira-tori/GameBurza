@@ -4,6 +4,8 @@
  */
 package com.mycompany.gameburza;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author sean
@@ -166,6 +168,7 @@ public class VideoGamePreviewPanel extends javax.swing.JPanel {
 
     private void addToCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addToCartButtonActionPerformed
         GameBurza.cart.add(GameBurza.games.get(index));
+        JOptionPane.showMessageDialog(GameBurza.mainScreen, "Added to Cart!");
     }//GEN-LAST:event_addToCartButtonActionPerformed
 
 

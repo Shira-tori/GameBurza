@@ -141,7 +141,6 @@ public class ItemPanel extends javax.swing.JPanel {
 
     private void clickAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickAreaMouseClicked
         GameBurza.mainScreen.addPreviewPanel(index);
-        System.out.println(this.title + this.picLoc + this.price);
     }//GEN-LAST:event_clickAreaMouseClicked
 
 

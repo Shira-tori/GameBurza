@@ -3,8 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.gameburza;
-import java.util.LinkedList;
-
 /**
  *
  * @author sean
@@ -319,7 +317,7 @@ public class MainScreen extends javax.swing.JFrame {
     itemsPanel2.removeAll();
     
     // Initialize merchandise if it's not already initialized
-    if (GameBurza.merch.size() == 0) {
+    if (GameBurza.merch.isEmpty()) {
         initializeMerchandise();
     } else {
         drawMerchandise();

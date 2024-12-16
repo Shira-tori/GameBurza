@@ -33,7 +33,7 @@ public class CartUI extends javax.swing.JFrame {
         TotalCartLabel1 = new javax.swing.JLabel();
         CheckOutButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        cartPanel = new javax.swing.JPanel();
         CartUpperUiPanel = new javax.swing.JPanel();
         CartLabel = new javax.swing.JLabel();
         ItemsLabel = new javax.swing.JLabel();
@@ -95,20 +95,19 @@ public class CartUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable1.setFillsViewportHeight(true);
-        jTable1.setShowGrid(false);
-        jScrollPane1.setViewportView(jTable1);
+        javax.swing.GroupLayout cartPanelLayout = new javax.swing.GroupLayout(cartPanel);
+        cartPanel.setLayout(cartPanelLayout);
+        cartPanelLayout.setHorizontalGroup(
+            cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 882, Short.MAX_VALUE)
+        );
+        cartPanelLayout.setVerticalGroup(
+            cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 503, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(cartPanel);
+        cartPanel.setLayout(new WrapLayout(WrapLayout.LEFT));
 
         javax.swing.GroupLayout CartUIPanelLayout = new javax.swing.GroupLayout(CartUIPanel);
         CartUIPanel.setLayout(CartUIPanelLayout);
@@ -273,8 +272,8 @@ public class CartUI extends javax.swing.JFrame {
     private javax.swing.JLabel ItemsLabel;
     private javax.swing.JLabel TotalCartLabel;
     private javax.swing.JLabel TotalCartLabel1;
+    private javax.swing.JPanel cartPanel;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
