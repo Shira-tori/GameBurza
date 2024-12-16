@@ -209,7 +209,7 @@ public class LoginScreen extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane,"Login Successful!", "Login Succesfull", JOptionPane.PLAIN_MESSAGE);
                     dispose();
                     GameBurza.mainScreen.setVisible(true);
-                    GameBurza.mainScreen.loadProductPaint();  
+                    GameBurza.mainScreen.loadGamesPaint();  
                     return;
                 }
             }

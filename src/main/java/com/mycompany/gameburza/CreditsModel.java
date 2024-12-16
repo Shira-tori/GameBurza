@@ -9,17 +9,20 @@ package com.mycompany.gameburza;
  * @author DDD
  */
 public class CreditsModel extends ProductModel{
+    public String title;
+    public int releaseDate;
     public String platforms;
-    public int[] availableDenominations;
+    public float price;
+    public String iconLoc;
     
     
-    public CreditsModel(String title, int[] availableDenominations, int releaseDate, String description,  String platforms, float price){
+    public CreditsModel(String title, int releaseDate, String description,  String platforms, float price, String iconLoc){
         this.title = title;
         this.description = description;
         this.releaseDate = releaseDate;
         this.platforms = platforms;
         this.price = price;
-        this.availableDenominations = availableDenominations;
+        this.iconLoc = iconLoc;
     }
 }
     
