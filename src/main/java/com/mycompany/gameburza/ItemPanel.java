@@ -22,13 +22,15 @@ public class ItemPanel extends javax.swing.JPanel {
     private float price;
     private String picLoc;
     private int index;
+    private String type;
     
-    public ItemPanel(String title, float price, String picLoc, int index) {
+    public ItemPanel(String title, float price, String picLoc, int index, String type) {
         initComponents();
         this.index = index;
         this.title = title;
         this.price = price;
         this.picLoc = picLoc;
+        this.type = type;
         titleLabel.setText(title);
         ItemPricelabel.setText("PHP " + String.valueOf(price));
         javax.swing.ImageIcon image = new javax.swing.ImageIcon(getClass().getResource(picLoc));
@@ -140,7 +142,7 @@ public class ItemPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_clickAreaMouseExited
 
     private void clickAreaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clickAreaMouseClicked
-        GameBurza.mainScreen.addPreviewPanel(index);
+        GameBurza.mainScreen.addPreviewPanel(index, type);
     }//GEN-LAST:event_clickAreaMouseClicked
 
 

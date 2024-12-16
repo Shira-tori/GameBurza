@@ -20,7 +20,8 @@ public class MainScreen extends javax.swing.JFrame {
         for(int i = 0; i < GameBurza.games.size(); i++){
             itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title, 
                                           GameBurza.games.get(i).price,
-                                          GameBurza.games.get(i).iconLoc, i));
+                                          GameBurza.games.get(i).iconLoc, i,
+                                          "Game"));
         }
     }
     
@@ -28,7 +29,8 @@ public class MainScreen extends javax.swing.JFrame {
         for(int i = 0; i < GameBurza.credits.size(); i++){
             itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, 
                                           GameBurza.credits.get(i).price, 
-                                          GameBurza.credits.get(i).iconLoc, i));
+                                          GameBurza.credits.get(i).iconLoc, i,
+                                          "Credits"));
         }
     }
 
@@ -342,17 +344,30 @@ public class MainScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_merchandiseButtonMouseClicked
  
-    public void addPreviewPanel(int i){
-        String title = GameBurza.games.get(i).title;
-        String description = GameBurza.games.get(i).description;
-        int releaseDate = GameBurza.games.get(i).releaseDate;
-        String platform = GameBurza.games.get(i).platforms;
-        String genre = GameBurza.games.get(i).genre;
-        String iconLoc = GameBurza.games.get(i).iconLoc;
-        float price = GameBurza.games.get(i).price;
-        previewPanelMainScreen.removeAll();
-        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price, i));
-        validate();
+    public void addPreviewPanel(int i, String type){
+        if(type.equals("Games")){
+            String title = GameBurza.games.get(i).title;
+            String description = GameBurza.games.get(i).description;
+            int releaseDate = GameBurza.games.get(i).releaseDate;
+            String platform = GameBurza.games.get(i).platforms;
+            String genre = GameBurza.games.get(i).genre;
+            String iconLoc = GameBurza.games.get(i).iconLoc;
+            float price = GameBurza.games.get(i).price;
+            previewPanelMainScreen.removeAll();
+            previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price, i));
+            validate();
+        }
+        else if(type.equals("Credits")){
+            String title = GameBurza.credits.get(i).title;
+            String description = GameBurza.credits.get(i).description;
+            int releaseDate = GameBurza.credits.get(i).releaseDate;
+            String platform = GameBurza.credits.get(i).platforms;
+            String iconLoc = GameBurza.credits.get(i).iconLoc;
+            float price = GameBurza.credits.get(i).price;
+            previewPanelMainScreen.removeAll();
+            previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, "", description, price, i));
+            validate();
+        }
     }
     
     /**
