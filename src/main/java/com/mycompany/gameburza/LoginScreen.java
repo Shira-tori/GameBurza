@@ -208,7 +208,7 @@ public class LoginScreen extends javax.swing.JFrame {
                 if(credentials[0].equals(emailTextField.getText()) && credentials[1].equals(new String(passwordField.getPassword()))){
                     dispose();
                     GameBurza.mainScreen.setVisible(true);
-                    GameBurza.mainScreen.loadProductPaint();  
+                    GameBurza.mainScreen.loadGamesPaint();  
                     return;
                 }
             }

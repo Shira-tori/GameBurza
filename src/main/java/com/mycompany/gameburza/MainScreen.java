@@ -18,20 +18,22 @@ public class MainScreen extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void loadProductPaint(){
+    public void loadGamesPaint(){
         for(int i = 0; i < GameBurza.games.size(); i++){
-            itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title, GameBurza.games.get(i).price, GameBurza.games.get(i).iconLoc, i));
+            itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title, 
+                                          GameBurza.games.get(i).price,
+                                          GameBurza.games.get(i).iconLoc, i));
         }
     }
     
-    
-    private void drawCredits(){
-        for (int i = 0; i < GameBurza.credits.size(); i++) {
-            CreditsModel credit = GameBurza.credits.get(i);
-            // Display name, platform, and denominations in the items panel
-            //itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, GameBurza.credits.get(i).price));
-        }
+public void loadCreditsPaint(){
+    for(int i = 0; i < GameBurza.credits.size(); i++){
+        itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, 
+                                      GameBurza.credits.get(i).price, 
+                                      GameBurza.credits.get(i).iconLoc, i));
     }
+}
+
     
     private void initializeMerchandise() {
     // Adding Merch Items
@@ -288,8 +290,9 @@ public class MainScreen extends javax.swing.JFrame {
             gamesButton.setSelected(true);
         }
         itemsPanel2.removeAll();
-        loadProductPaint();  
-        validate();
+        loadGamesPaint();  
+        itemsPanel2.revalidate();
+        itemsPanel2.repaint();
     }//GEN-LAST:event_gamesButtonActionPerformed
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
@@ -301,8 +304,9 @@ public class MainScreen extends javax.swing.JFrame {
             creditsButton.setSelected(true);
         }
         itemsPanel2.removeAll();
-        drawCredits();
-        validate();
+        loadCreditsPaint();
+        itemsPanel2.revalidate();
+        itemsPanel2.repaint();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
     private void merchandiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_merchandiseButtonActionPerformed
@@ -326,7 +330,8 @@ public class MainScreen extends javax.swing.JFrame {
     }
     
     // Revalidate and repaint the panel to ensure the changes are reflected
-    validate();
+        itemsPanel2.revalidate();
+        itemsPanel2.repaint();
     }//GEN-LAST:event_merchandiseButtonActionPerformed
 
     private void gamesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamesButtonMouseClicked
