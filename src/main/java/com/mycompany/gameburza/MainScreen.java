@@ -33,20 +33,16 @@ public class MainScreen extends javax.swing.JFrame {
                                           "Credits"));
         }
     }
-
-    
-    private void initializeMerchandise() {
-    // Adding Merch Items
-    GameBurza.merch.add(new MerchItem("Overwatch D.Va Hoodie", "Sizes S, M, L, XL"));
-    GameBurza.merch.add(new MerchItem("Assassin’s Creed Hidden Blade Replica Jacket", "Sizes S, M, L, XL"));
-    
-    // Adding Collectibles
-    GameBurza.merch.add(new MerchItem("Resident Evil Umbrella Corporation Logo Keychain", "Material: Metal, Size: 5cm diameter"));
-    GameBurza.merch.add(new MerchItem("Fallout Nuka-Cola Bottle Opener", "Material: Metal, Size: 10cm length"));
-
-    // Call the method to display the merchandise items
-    drawMerchandise();
+    public void loadMerchPaint(){
+    for(int i = 0; i < GameBurza.merch.size(); i++){
+        itemsPanel2.add(new ItemPanel(GameBurza.merch.get(i).title, 
+                                      GameBurza.merch.get(i).price, 
+                                      GameBurza.merch.get(i).iconLoc, i,
+                                      "Merch"));
+    }
 }
+
+
     private void drawMerchandise() {
     // Assuming you have a UI panel `itemsPanel2` to display the merchandise items
     for (int i = 0; i < GameBurza.merch.size(); i++) {
@@ -316,20 +312,10 @@ public class MainScreen extends javax.swing.JFrame {
     else{
         merchandiseButton.setSelected(true);
     }
-    
-    // Clear the items panel
+
     itemsPanel2.removeAll();
-    
-    // Initialize merchandise if it's not already initialized
-    if (GameBurza.merch.isEmpty()) {
-        initializeMerchandise();
-    } else {
-        drawMerchandise();
-    }
-    
-    // Revalidate and repaint the panel to ensure the changes are reflected
-        itemsPanel2.revalidate();
-        itemsPanel2.repaint();
+    loadMerchPaint();
+    validate();
     }//GEN-LAST:event_merchandiseButtonActionPerformed
 
     private void gamesButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gamesButtonMouseClicked
@@ -344,31 +330,41 @@ public class MainScreen extends javax.swing.JFrame {
 
     }//GEN-LAST:event_merchandiseButtonMouseClicked
  
-    public void addPreviewPanel(int i, String type){
-        if(type.equals("Games")){
-            String title = GameBurza.games.get(i).title;
-            String description = GameBurza.games.get(i).description;
-            int releaseDate = GameBurza.games.get(i).releaseDate;
-            String platform = GameBurza.games.get(i).platforms;
-            String genre = GameBurza.games.get(i).genre;
-            String iconLoc = GameBurza.games.get(i).iconLoc;
-            float price = GameBurza.games.get(i).price;
-            previewPanelMainScreen.removeAll();
-            previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price, i));
-            validate();
-        }
-        else if(type.equals("Credits")){
-            String title = GameBurza.credits.get(i).title;
-            String description = GameBurza.credits.get(i).description;
-            int releaseDate = GameBurza.credits.get(i).releaseDate;
-            String platform = GameBurza.credits.get(i).platforms;
-            String iconLoc = GameBurza.credits.get(i).iconLoc;
-            float price = GameBurza.credits.get(i).price;
-            previewPanelMainScreen.removeAll();
-            previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, "", description, price, i));
-            validate();
-        }
+public void addPreviewPanel(int i, String type){
+    if(type.equals("Games")){
+        String title = GameBurza.games.get(i).title;
+        String description = GameBurza.games.get(i).description;
+        int releaseDate = GameBurza.games.get(i).releaseDate;
+        String platform = GameBurza.games.get(i).platforms;
+        String genre = GameBurza.games.get(i).genre;
+        String iconLoc = GameBurza.games.get(i).iconLoc;
+        float price = GameBurza.games.get(i).price;
+        previewPanelMainScreen.removeAll();
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price, i));
+        validate();
     }
+    else if(type.equals("Credits")){
+        String title = GameBurza.credits.get(i).title;
+        String description = GameBurza.credits.get(i).description;
+        int releaseDate = GameBurza.credits.get(i).releaseDate;
+        String platform = GameBurza.credits.get(i).platforms;
+        String iconLoc = GameBurza.credits.get(i).iconLoc;
+        float price = GameBurza.credits.get(i).price;
+        previewPanelMainScreen.removeAll();
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, "", description, price, i));
+        validate();
+    }
+    else if(type.equals("Merch")){
+        String title = GameBurza.merch.get(i).title;
+        String description = GameBurza.merch.get(i).description;
+        String iconLoc = GameBurza.merch.get(i).iconLoc;
+        float price = GameBurza.merch.get(i).price;
+        previewPanelMainScreen.removeAll();
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, 0, "", "", description, price, i));
+        validate();
+    }
+}
+
     
     /**
      * @param args the command line arguments
