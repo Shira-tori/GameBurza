@@ -206,6 +206,7 @@ public class LoginScreen extends javax.swing.JFrame {
                 System.out.println(credentials[1]);
                 System.out.println(passwordField.getPassword());                
                 if(credentials[0].equals(emailTextField.getText()) && credentials[1].equals(new String(passwordField.getPassword()))){
+                    JOptionPane.showMessageDialog(rootPane,"Login Successful!", "Login Succesfull", JOptionPane.PLAIN_MESSAGE);
                     dispose();
                     GameBurza.mainScreen.setVisible(true);
                     GameBurza.mainScreen.loadProductPaint();  
@@ -215,6 +216,7 @@ public class LoginScreen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Login Failed", "Login Failed", JOptionPane.ERROR_MESSAGE);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(rootPane, "Credential file not found!", "File Not Found", JOptionPane.ERROR_MESSAGE);
             return;
         } catch (IOException ex) {
             Logger.getLogger(LoginScreen.class.getName()).log(Level.SEVERE, null, ex);
