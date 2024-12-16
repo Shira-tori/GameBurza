@@ -19,6 +19,7 @@ public class GameBurza {
     public static RegisterScreen registerScreen = new RegisterScreen();
     public static MainScreen mainScreen = new MainScreen();
     public static CartUI cartUI = new CartUI();
+    public static GenerateReceipt receipt = new GenerateReceipt();
     
     private static void initializeVideoGames(){
         games.add(new VideoGameModel("Grand Theft Auto V", 2013, "An open-world action-adventure game with heist missions.", "PS5, Xbox, Steam", "Action", (float) 1679.44, "/images/GTAVlogo (2)_1.png"));

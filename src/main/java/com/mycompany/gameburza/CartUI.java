@@ -227,14 +227,20 @@ public class CartUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CheckOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutButtonActionPerformed
-        // TODO add your handling code here:
+        GameBurza.receipt.setVisible(true);
+        GameBurza.receipt.initTable();
+        GameBurza.receipt.GrandTotalLabel.setText(String.valueOf(this.total));
     }//GEN-LAST:event_CheckOutButtonActionPerformed
 
     private void DeleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductButtonActionPerformed
         if(jTable1.getSelectedRowCount() == 1){
-            total -= GameBurza.cart.get(jTable1.getSelectedRow()).price;
-            TotalCartLabel1.setText(String.valueOf(total));
+            GameBurza.cart.remove(jTable1.getSelectedRow());
             tblModel.removeRow(jTable1.getSelectedRow());
+            this.total = 0;
+            for(int i = 0; i < GameBurza.cart.size(); i++){
+                this.total += GameBurza.cart.get(i).price;
+            }
+            TotalCartLabel1.setText(String.valueOf(this.total));
         }
         else{
             JOptionPane.showMessageDialog(this, "Select only one product.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -292,7 +298,7 @@ public class CartUI extends javax.swing.JFrame {
     private javax.swing.JLabel ItemsLabel;
     private javax.swing.JLabel TotalCartLabel;
     private javax.swing.JLabel TotalCartLabel1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JScrollPane scrollPanel;
     // End of variables declaration//GEN-END:variables
 }

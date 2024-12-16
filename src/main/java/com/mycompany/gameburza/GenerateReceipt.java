@@ -4,6 +4,8 @@
  */
 package com.mycompany.gameburza;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jhan Steven Cruz
@@ -15,6 +17,15 @@ public class GenerateReceipt extends javax.swing.JFrame {
      */
     public GenerateReceipt() {
         initComponents();
+        
+    }
+    
+    public void initTable(){
+        DefaultTableModel recTab = (DefaultTableModel) jTable1.getModel();
+        recTab.setRowCount(0);
+        for(int i = 0; i < GameBurza.cart.size(); i++){
+            recTab.addRow(new String[]{GameBurza.cart.get(i).title, String.valueOf(GameBurza.cart.get(i).price)});
+        }
     }
 
     /**
@@ -33,22 +44,16 @@ public class GenerateReceipt extends javax.swing.JFrame {
         ReceiptQuote = new javax.swing.JLabel();
         ReceiptAddress = new javax.swing.JLabel();
         ReceiptTrailingLines1 = new javax.swing.JLabel();
-        ReceiptItemLabel = new javax.swing.JLabel();
-        QTYItemLabel = new javax.swing.JLabel();
-        ReceiptPriceLabel = new javax.swing.JLabel();
-        ReceiptTotalLabel = new javax.swing.JLabel();
-        ItemScrollPane = new javax.swing.JScrollPane();
-        QtyScrollPane = new javax.swing.JScrollPane();
-        TotalScrollPane = new javax.swing.JScrollPane();
-        PriceScrollPane = new javax.swing.JScrollPane();
         ReceiptTrailingLines20 = new javax.swing.JLabel();
         ReceiptGrandTotalLabel = new javax.swing.JLabel();
         ReceiptItemLabel2 = new javax.swing.JLabel();
         ReceiptPaymentMethodLabel = new javax.swing.JLabel();
-        GrandTotalPane = new javax.swing.JScrollPane();
         GCASHitemLabel = new javax.swing.JLabel();
         ReceiptTrailingLines21 = new javax.swing.JLabel();
         ThankYouLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        GrandTotalLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,22 +76,6 @@ public class GenerateReceipt extends javax.swing.JFrame {
 
         ReceiptTrailingLines1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         ReceiptTrailingLines1.setText("------------------------------------");
-
-        ReceiptItemLabel.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        ReceiptItemLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        ReceiptItemLabel.setText("ITEM");
-
-        QTYItemLabel.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        QTYItemLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        QTYItemLabel.setText("QTY");
-
-        ReceiptPriceLabel.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        ReceiptPriceLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ReceiptPriceLabel.setText("PRICE");
-
-        ReceiptTotalLabel.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        ReceiptTotalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ReceiptTotalLabel.setText("TOTAL");
 
         ReceiptTrailingLines20.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
         ReceiptTrailingLines20.setText("------------------------------------");
@@ -113,19 +102,34 @@ public class GenerateReceipt extends javax.swing.JFrame {
         ThankYouLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ThankYouLabel.setText("THANK YOU FOR SHOPPING WITH US!");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Item", "Price"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jTable1);
+
+        GrandTotalLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        GrandTotalLabel.setText("jLabel1");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(109, 109, 109)
-                        .addComponent(ReceiptLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(ReceiptBrandName)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,76 +139,59 @@ public class GenerateReceipt extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(ThankYouLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ReceiptTrailingLines21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ReceiptTrailingLines21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                             .addComponent(ReceiptTrailingLines20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ReceiptQuote, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ItemScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ReceiptItemLabel))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(QtyScrollPane)
-                                    .addComponent(QTYItemLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(PriceScrollPane)
-                                    .addComponent(ReceiptPriceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TotalScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ReceiptTotalLabel))
-                                .addGap(5, 5, 5))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ReceiptGrandTotalLabel)
                                     .addComponent(ReceiptItemLabel2)
                                     .addComponent(ReceiptPaymentMethodLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(GrandTotalPane)
-                                    .addComponent(GCASHitemLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(GCASHitemLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(GrandTotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addComponent(ReceiptLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(61, 61, 61)
+                                .addComponent(ReceiptBrandName)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ReceiptLogo)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ReceiptBrandName)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ReceiptTrailingLines)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ReceiptQuote)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ReceiptAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ReceiptTrailingLines1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ReceiptItemLabel)
-                            .addComponent(QTYItemLabel)
-                            .addComponent(ReceiptPriceLabel)
-                            .addComponent(ReceiptTotalLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ItemScrollPane)
-                            .addComponent(QtyScrollPane)
-                            .addComponent(TotalScrollPane)
-                            .addComponent(PriceScrollPane))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ReceiptTrailingLines20)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ReceiptGrandTotalLabel))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(368, 368, 368)
-                        .addComponent(GrandTotalPane, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(3, 3, 3)
-                .addComponent(ReceiptItemLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReceiptBrandName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReceiptTrailingLines)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReceiptQuote)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReceiptAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReceiptTrailingLines1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ReceiptTrailingLines20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ReceiptGrandTotalLabel)
+                    .addComponent(GrandTotalLabel))
+                .addGap(6, 6, 6)
+                .addComponent(ReceiptItemLabel2)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ReceiptPaymentMethodLabel)
                     .addComponent(GCASHitemLabel))
@@ -223,7 +210,9 @@ public class GenerateReceipt extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(149, Short.MAX_VALUE))
         );
 
         pack();
@@ -266,126 +255,21 @@ public class GenerateReceipt extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel GCASHitemLabel;
-    private javax.swing.JScrollPane GrandTotalPane;
-    private javax.swing.JScrollPane ItemScrollPane;
-    private javax.swing.JScrollPane PriceScrollPane;
-    private javax.swing.JLabel QTYItemLabel;
-    private javax.swing.JScrollPane QtyScrollPane;
+    public javax.swing.JLabel GrandTotalLabel;
     private javax.swing.JLabel ReceiptAddress;
-    private javax.swing.JLabel ReceiptAddress1;
-    private javax.swing.JLabel ReceiptAddress2;
-    private javax.swing.JLabel ReceiptAddress3;
-    private javax.swing.JLabel ReceiptAddress4;
-    private javax.swing.JLabel ReceiptAddress5;
-    private javax.swing.JLabel ReceiptAddress6;
-    private javax.swing.JLabel ReceiptAddress7;
-    private javax.swing.JLabel ReceiptAddress8;
-    private javax.swing.JLabel ReceiptAddress9;
     private javax.swing.JLabel ReceiptBrandName;
-    private javax.swing.JLabel ReceiptBrandName1;
-    private javax.swing.JLabel ReceiptBrandName2;
-    private javax.swing.JLabel ReceiptBrandName3;
-    private javax.swing.JLabel ReceiptBrandName4;
-    private javax.swing.JLabel ReceiptBrandName5;
-    private javax.swing.JLabel ReceiptBrandName6;
-    private javax.swing.JLabel ReceiptBrandName7;
-    private javax.swing.JLabel ReceiptBrandName8;
-    private javax.swing.JLabel ReceiptBrandName9;
     private javax.swing.JLabel ReceiptGrandTotalLabel;
-    private javax.swing.JLabel ReceiptItemLabel;
     private javax.swing.JLabel ReceiptItemLabel2;
     private javax.swing.JLabel ReceiptLogo;
-    private javax.swing.JLabel ReceiptLogo1;
-    private javax.swing.JLabel ReceiptLogo2;
-    private javax.swing.JLabel ReceiptLogo3;
-    private javax.swing.JLabel ReceiptLogo4;
-    private javax.swing.JLabel ReceiptLogo5;
-    private javax.swing.JLabel ReceiptLogo6;
-    private javax.swing.JLabel ReceiptLogo7;
-    private javax.swing.JLabel ReceiptLogo8;
-    private javax.swing.JLabel ReceiptLogo9;
     private javax.swing.JLabel ReceiptPaymentMethodLabel;
-    private javax.swing.JLabel ReceiptPriceLabel;
     private javax.swing.JLabel ReceiptQuote;
-    private javax.swing.JLabel ReceiptQuote10;
-    private javax.swing.JLabel ReceiptQuote11;
-    private javax.swing.JLabel ReceiptQuote12;
-    private javax.swing.JLabel ReceiptQuote13;
-    private javax.swing.JLabel ReceiptQuote14;
-    private javax.swing.JLabel ReceiptQuote15;
-    private javax.swing.JLabel ReceiptQuote16;
-    private javax.swing.JLabel ReceiptQuote17;
-    private javax.swing.JLabel ReceiptQuote18;
-    private javax.swing.JLabel ReceiptQuote19;
-    private javax.swing.JLabel ReceiptQuote20;
-    private javax.swing.JLabel ReceiptQuote21;
-    private javax.swing.JLabel ReceiptQuote22;
-    private javax.swing.JLabel ReceiptQuote23;
-    private javax.swing.JLabel ReceiptQuote24;
-    private javax.swing.JLabel ReceiptQuote25;
-    private javax.swing.JLabel ReceiptQuote26;
-    private javax.swing.JLabel ReceiptQuote27;
-    private javax.swing.JLabel ReceiptQuote28;
-    private javax.swing.JLabel ReceiptQuote29;
-    private javax.swing.JLabel ReceiptQuote30;
-    private javax.swing.JLabel ReceiptQuote31;
-    private javax.swing.JLabel ReceiptQuote32;
-    private javax.swing.JLabel ReceiptQuote33;
-    private javax.swing.JLabel ReceiptQuote34;
-    private javax.swing.JLabel ReceiptQuote35;
-    private javax.swing.JLabel ReceiptQuote36;
-    private javax.swing.JLabel ReceiptQuote37;
-    private javax.swing.JLabel ReceiptQuote38;
-    private javax.swing.JLabel ReceiptQuote39;
-    private javax.swing.JLabel ReceiptQuote40;
-    private javax.swing.JLabel ReceiptQuote41;
-    private javax.swing.JLabel ReceiptQuote42;
-    private javax.swing.JLabel ReceiptQuote43;
-    private javax.swing.JLabel ReceiptQuote44;
-    private javax.swing.JLabel ReceiptQuote45;
-    private javax.swing.JLabel ReceiptQuote46;
-    private javax.swing.JLabel ReceiptQuote47;
-    private javax.swing.JLabel ReceiptQuote48;
-    private javax.swing.JLabel ReceiptQuote49;
-    private javax.swing.JLabel ReceiptQuote5;
-    private javax.swing.JLabel ReceiptQuote6;
-    private javax.swing.JLabel ReceiptQuote7;
-    private javax.swing.JLabel ReceiptQuote8;
-    private javax.swing.JLabel ReceiptQuote9;
-    private javax.swing.JLabel ReceiptTotalLabel;
     private javax.swing.JLabel ReceiptTrailingLines;
     private javax.swing.JLabel ReceiptTrailingLines1;
-    private javax.swing.JLabel ReceiptTrailingLines10;
-    private javax.swing.JLabel ReceiptTrailingLines11;
-    private javax.swing.JLabel ReceiptTrailingLines12;
-    private javax.swing.JLabel ReceiptTrailingLines13;
-    private javax.swing.JLabel ReceiptTrailingLines14;
-    private javax.swing.JLabel ReceiptTrailingLines15;
-    private javax.swing.JLabel ReceiptTrailingLines16;
-    private javax.swing.JLabel ReceiptTrailingLines17;
-    private javax.swing.JLabel ReceiptTrailingLines18;
-    private javax.swing.JLabel ReceiptTrailingLines19;
-    private javax.swing.JLabel ReceiptTrailingLines2;
     private javax.swing.JLabel ReceiptTrailingLines20;
     private javax.swing.JLabel ReceiptTrailingLines21;
-    private javax.swing.JLabel ReceiptTrailingLines3;
-    private javax.swing.JLabel ReceiptTrailingLines4;
-    private javax.swing.JLabel ReceiptTrailingLines5;
-    private javax.swing.JLabel ReceiptTrailingLines6;
-    private javax.swing.JLabel ReceiptTrailingLines7;
-    private javax.swing.JLabel ReceiptTrailingLines8;
-    private javax.swing.JLabel ReceiptTrailingLines9;
     private javax.swing.JLabel ThankYouLabel;
-    private javax.swing.JScrollPane TotalScrollPane;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
