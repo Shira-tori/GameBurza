@@ -21,7 +21,7 @@ public class MainScreen extends javax.swing.JFrame {
             itemsPanel2.add(new ItemPanel(GameBurza.games.get(i).title, 
                                           GameBurza.games.get(i).price,
                                           GameBurza.games.get(i).iconLoc, i,
-                                          "Game"));
+                                          "Games"));
         }
     }
     
