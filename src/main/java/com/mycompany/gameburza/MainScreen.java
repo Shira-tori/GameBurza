@@ -24,13 +24,13 @@ public class MainScreen extends javax.swing.JFrame {
         }
     }
     
-public void loadCreditsPaint(){
-    for(int i = 0; i < GameBurza.credits.size(); i++){
-        itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, 
-                                      GameBurza.credits.get(i).price, 
-                                      GameBurza.credits.get(i).iconLoc, i));
+    public void loadCreditsPaint(){
+        for(int i = 0; i < GameBurza.credits.size(); i++){
+            itemsPanel2.add(new ItemPanel(GameBurza.credits.get(i).title, 
+                                          GameBurza.credits.get(i).price, 
+                                          GameBurza.credits.get(i).iconLoc, i));
+        }
     }
-}
 
     
     private void initializeMerchandise() {
@@ -289,8 +289,7 @@ public void loadCreditsPaint(){
         }
         itemsPanel2.removeAll();
         loadGamesPaint();  
-        itemsPanel2.revalidate();
-        itemsPanel2.repaint();
+        validate();
     }//GEN-LAST:event_gamesButtonActionPerformed
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
@@ -303,8 +302,7 @@ public void loadCreditsPaint(){
         }
         itemsPanel2.removeAll();
         loadCreditsPaint();
-        itemsPanel2.revalidate();
-        itemsPanel2.repaint();
+        validate();
     }//GEN-LAST:event_creditsButtonActionPerformed
 
     private void merchandiseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_merchandiseButtonActionPerformed

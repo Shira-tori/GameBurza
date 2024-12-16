@@ -44,7 +44,7 @@ public class GameBurza {
     
         GameBurza.credits.add(new CreditsModel("PlayStation Network (PSN) Wallet Top-up" , 2020, "Top up your PSN wallet to purchase games, DLCs, and subscriptions.", "PSN", (float) 500.00, "/images/psgc.jpg"));
         GameBurza.credits.add(new CreditsModel("Steam Wallet Gift Card (Digital Code)" , 2019, "Redeemable Steam Wallet funds for games, DLCs, and in-game purchases.", "Steam", (float) 550.00, "/images/steamgc.jpg" ));
-        GameBurza.credits.add(new CreditsModel("Garena Shells Scratch Card" , 2018, "Prepaid scratch cards for Garena games like League of Legends and Call of Duty.", "Garena", (float) 450.00, "/images/garenagc.jpeg" ));
+        GameBurza.credits.add(new CreditsModel("Garena Shells Scratch Card" , 2018, "Prepaid scratch cards for Garena games like League of Legends and Call of Duty.", "Garena", (float) 450.00, "/images/garenagc.jpg" ));
         GameBurza.credits.add(new CreditsModel("Google Play Gift Card (Physical)", 2021, "Purchase apps, games, movies, and more from the Google Play Store.", "Google Play", (float) 600.00, "/images/googleplaygc.jpg" ));
     }
     
