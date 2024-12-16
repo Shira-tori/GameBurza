@@ -228,7 +228,7 @@ public class CartUI extends javax.swing.JFrame {
 
     private void CheckOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutButtonActionPerformed
         GameBurza.receipt.setVisible(true);
-        GameBurza.receipt.initTable();
+        GameBurza.receipt.initTable();  
         GameBurza.receipt.GrandTotalLabel.setText(String.valueOf(this.total));
     }//GEN-LAST:event_CheckOutButtonActionPerformed
 
