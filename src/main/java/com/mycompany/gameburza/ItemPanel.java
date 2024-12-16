@@ -118,7 +118,6 @@ public class ItemPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        System.out.println(this.titleLabel.getText());
     }//GEN-LAST:event_formMouseClicked
 
     private void ItemPricelabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ItemPricelabelMouseClicked

@@ -9,11 +9,7 @@ package com.mycompany.gameburza;
  * @author DDD
  */
 public class CreditsModel extends ProductModel{
-    public String title;
-    public int releaseDate;
     public String platforms;
-    public float price;
-    public String iconLoc;
     
     
     public CreditsModel(String title, int releaseDate, String description,  String platforms, float price, String iconLoc){

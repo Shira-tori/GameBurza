@@ -4,6 +4,9 @@
  */
 package com.mycompany.gameburza;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Jhan Steven Cruz
@@ -13,8 +16,27 @@ public class CartUI extends javax.swing.JFrame {
     /**
      * Creates new form CartUI
      */
+    
+    public DefaultTableModel tblModel;
+    private float total = 0;
+    
     public CartUI() {
         initComponents();
+        tblModel = (DefaultTableModel)jTable1.getModel();
+    }
+    
+    public void initCart(){
+        for(int i = 0; i < GameBurza.cart.size(); i++){
+            total += GameBurza.cart.get(i).price;
+        }
+        TotalCartLabel1.setText(String.valueOf(total));
+        
+        
+        tblModel.setRowCount(0);
+        for(int i = 0; i < GameBurza.cart.size(); i++){
+            tblModel.addRow(new String[]{GameBurza.cart.get(i).title, String.valueOf(GameBurza.cart.get(i).price)});
+        }
+        
     }
 
     /**
@@ -28,7 +50,6 @@ public class CartUI extends javax.swing.JFrame {
 
         CartUIPanel = new javax.swing.JPanel();
         CartLowerUIPanel = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         TotalCartLabel = new javax.swing.JLabel();
         TotalCartLabel1 = new javax.swing.JLabel();
         CheckOutButton = new javax.swing.JButton();
@@ -37,27 +58,20 @@ public class CartUI extends javax.swing.JFrame {
         CartUpperUiPanel = new javax.swing.JPanel();
         CartLabel = new javax.swing.JLabel();
         ItemsLabel = new javax.swing.JLabel();
-        EditCartButton = new javax.swing.JButton();
+        DeleteProductButton = new javax.swing.JButton();
         CartUIHomeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(184, 30, 38));
+        setResizable(false);
 
         CartLowerUIPanel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        jCheckBox1.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
-        jCheckBox1.setText("Select all");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
 
         TotalCartLabel.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
         TotalCartLabel.setText("Total:");
 
-        TotalCartLabel1.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
-        TotalCartLabel1.setText("$0");
+        TotalCartLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        TotalCartLabel1.setText("0");
 
         CheckOutButton.setBackground(new java.awt.Color(184, 30, 38));
         CheckOutButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
@@ -75,18 +89,15 @@ public class CartUI extends javax.swing.JFrame {
         CartLowerUIPanelLayout.setHorizontalGroup(
             CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CartLowerUIPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jCheckBox1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 486, Short.MAX_VALUE)
+                .addGap(16, 16, 16)
                 .addComponent(TotalCartLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TotalCartLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CheckOutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         CartLowerUIPanelLayout.setVerticalGroup(
             CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(CartLowerUIPanelLayout.createSequentialGroup()
                 .addGroup(CartLowerUIPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CheckOutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
@@ -95,19 +106,17 @@ public class CartUI extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        jTable1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Products", "Quantity", "Total"
+                "Products", "Total"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, true, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -147,14 +156,14 @@ public class CartUI extends javax.swing.JFrame {
         ItemsLabel.setForeground(new java.awt.Color(255, 255, 255));
         ItemsLabel.setText("(NO. of Items)");
 
-        EditCartButton.setBackground(new java.awt.Color(180, 30, 38));
-        EditCartButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
-        EditCartButton.setForeground(new java.awt.Color(255, 255, 255));
-        EditCartButton.setText("EDIT");
-        EditCartButton.setBorderPainted(false);
-        EditCartButton.addActionListener(new java.awt.event.ActionListener() {
+        DeleteProductButton.setBackground(new java.awt.Color(180, 30, 38));
+        DeleteProductButton.setFont(new java.awt.Font("Nebula", 0, 18)); // NOI18N
+        DeleteProductButton.setForeground(new java.awt.Color(255, 255, 255));
+        DeleteProductButton.setText("DELETE");
+        DeleteProductButton.setBorderPainted(false);
+        DeleteProductButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditCartButtonActionPerformed(evt);
+                DeleteProductButtonActionPerformed(evt);
             }
         });
 
@@ -178,12 +187,12 @@ public class CartUI extends javax.swing.JFrame {
             .addGroup(CartUpperUiPanelLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(CartUIHomeButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                 .addComponent(CartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ItemsLabel)
                 .addGap(132, 132, 132)
-                .addComponent(EditCartButton)
+                .addComponent(DeleteProductButton)
                 .addGap(30, 30, 30))
         );
         CartUpperUiPanelLayout.setVerticalGroup(
@@ -193,7 +202,7 @@ public class CartUI extends javax.swing.JFrame {
                 .addGroup(CartUpperUiPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CartLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ItemsLabel)
-                    .addComponent(EditCartButton)
+                    .addComponent(DeleteProductButton)
                     .addComponent(CartUIHomeButton))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
@@ -217,17 +226,21 @@ public class CartUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
     private void CheckOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckOutButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckOutButtonActionPerformed
 
-    private void EditCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditCartButtonActionPerformed
-      // TODO add your handling code here:
-    }//GEN-LAST:event_EditCartButtonActionPerformed
+    private void DeleteProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteProductButtonActionPerformed
+        if(jTable1.getSelectedRowCount() == 1){
+            total -= GameBurza.cart.get(jTable1.getSelectedRow()).price;
+            TotalCartLabel1.setText(String.valueOf(total));
+            tblModel.removeRow(jTable1.getSelectedRow());
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Select only one product.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_DeleteProductButtonActionPerformed
 
     private void CartUIHomeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CartUIHomeButtonActionPerformed
         dispose();
@@ -275,11 +288,10 @@ public class CartUI extends javax.swing.JFrame {
     private javax.swing.JPanel CartUIPanel;
     private javax.swing.JPanel CartUpperUiPanel;
     private javax.swing.JButton CheckOutButton;
-    private javax.swing.JButton EditCartButton;
+    private javax.swing.JButton DeleteProductButton;
     private javax.swing.JLabel ItemsLabel;
     private javax.swing.JLabel TotalCartLabel;
     private javax.swing.JLabel TotalCartLabel1;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane scrollPanel;
     // End of variables declaration//GEN-END:variables

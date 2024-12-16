@@ -201,10 +201,7 @@ public class LoginScreen extends javax.swing.JFrame {
             String line;
             while((line = reader.readLine()) != null){
                 
-                String[] credentials = line.split(",");
-                System.out.println(credentials[0]);
-                System.out.println(credentials[1]);
-                System.out.println(passwordField.getPassword());                
+                String[] credentials = line.split(",");               
                 if(credentials[0].equals(emailTextField.getText()) && credentials[1].equals(new String(passwordField.getPassword()))){
                     JOptionPane.showMessageDialog(rootPane,"Login Successful!", "Login Succesfull", JOptionPane.PLAIN_MESSAGE);
                     dispose();

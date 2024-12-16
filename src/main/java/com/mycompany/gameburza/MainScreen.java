@@ -242,24 +242,25 @@ public class MainScreen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(previewPanelMainScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addComponent(previewPanelMainScreen, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 845, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(topMenuPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(previewPanelMainScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(755, 755, 755))
-                    .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0))))
         );
 
         pack();
@@ -267,6 +268,7 @@ public class MainScreen extends javax.swing.JFrame {
 
     private void cartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartButtonActionPerformed
         GameBurza.cartUI.setVisible(true);
+        GameBurza.cartUI.initCart();
     }//GEN-LAST:event_cartButtonActionPerformed
 
     private void accountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountButtonActionPerformed
@@ -340,7 +342,7 @@ public void addPreviewPanel(int i, String type){
         String iconLoc = GameBurza.games.get(i).iconLoc;
         float price = GameBurza.games.get(i).price;
         previewPanelMainScreen.removeAll();
-        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price, i));
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, genre, description, price, i, type));
         validate();
     }
     else if(type.equals("Credits")){
@@ -351,7 +353,7 @@ public void addPreviewPanel(int i, String type){
         String iconLoc = GameBurza.credits.get(i).iconLoc;
         float price = GameBurza.credits.get(i).price;
         previewPanelMainScreen.removeAll();
-        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, "", description, price, i));
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, releaseDate, platform, "", description, price, i, type));
         validate();
     }
     else if(type.equals("Merch")){
@@ -360,7 +362,7 @@ public void addPreviewPanel(int i, String type){
         String iconLoc = GameBurza.merch.get(i).iconLoc;
         float price = GameBurza.merch.get(i).price;
         previewPanelMainScreen.removeAll();
-        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, 0, "", "", description, price, i));
+        previewPanelMainScreen.add(new VideoGamePreviewPanel(title, iconLoc, 0, "", "", description, price, i, type));
         validate();
     }
 }

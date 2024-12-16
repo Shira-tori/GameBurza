@@ -11,7 +11,7 @@ import java.util.List;
  * @author sean
  */
 public class GameBurza {
-    public static List<Object> cart = new ArrayList<>();
+    public static List<ProductModel> cart = new ArrayList<>();
     public static List<VideoGameModel> games = new ArrayList<>();
     public static List<CreditsModel> credits = new ArrayList<>();
     public static List<MerchItem> merch = new ArrayList<>();
@@ -48,11 +48,11 @@ public class GameBurza {
         GameBurza.credits.add(new CreditsModel("Google Play Gift Card (Physical)", 2021, "Purchase apps, games, movies, and more from the Google Play Store.", "Google Play", (float) 600.00, "/images/googleplaygc.jpg" ));
     }
     private static void initializeMerchandise() {
-    GameBurza.merch.add(new MerchItem("Overwatch D.Va Hoodie", "A cozy hoodie featuring D.Va from Overwatch. Available in sizes S, M, L, XL.", 999.00f, "/images/overwatchhoodie.png"));
-    GameBurza.merch.add(new MerchItem("Assassin’s Creed Hidden Blade Replica Jacket", "A jacket inspired by the iconic Hidden Blade from Assassin's Creed. Available in sizes S, M, L, XL.", 999.00f, "/images/assassinscreedjacket.png"));
-    GameBurza.merch.add(new MerchItem("Resident Evil Umbrella Corporation Logo Keychain", "A metal keychain featuring the Umbrella Corporation logo from Resident Evil. Size: 5cm diameter.", 250.00f, "/images/residentevilkitchen.png"));
-    GameBurza.merch.add(new MerchItem("Fallout Nuka-Cola Bottle Opener", "A metal bottle opener shaped like the iconic Nuka-Cola bottle from Fallout. Size: 10cm length.", 75.00f, "/images/falloutnukacola.png"));
-}
+        GameBurza.merch.add(new MerchItem("Overwatch D.Va Hoodie", "A cozy hoodie featuring D.Va from Overwatch. Available in sizes S, M, L, XL.", (float) 999.00f, "/images/overwatchhoodie.png"));
+        GameBurza.merch.add(new MerchItem("Assassin’s Creed Hidden Blade Replica Jacket", "A jacket inspired by the iconic Hidden Blade from Assassin's Creed. Available in sizes S, M, L, XL.", (float) 999.00, "/images/assassinscreedjacket.png"));
+        GameBurza.merch.add(new MerchItem("Resident Evil Umbrella Corporation Logo Keychain", "A metal keychain featuring the Umbrella Corporation logo from Resident Evil. Size: 5cm diameter.", (float) 250.00, "/images/residentevilkeychain.png"));
+        GameBurza.merch.add(new MerchItem("Fallout Nuka-Cola Bottle Opener", "A metal bottle opener shaped like the iconic Nuka-Cola bottle from Fallout. Size: 10cm length.", (float) 75.00, "/images/falloutnukacola.jpg"));
+    }
 
     
     
