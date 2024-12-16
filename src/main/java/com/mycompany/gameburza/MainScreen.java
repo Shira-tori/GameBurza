@@ -260,8 +260,8 @@ public void loadCreditsPaint(){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(previewPanelMainScreen, javax.swing.GroupLayout.DEFAULT_SIZE, 12, Short.MAX_VALUE)
-                        .addGap(749, 749, 749))
+                        .addComponent(previewPanelMainScreen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(755, 755, 755))
                     .addComponent(scrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
